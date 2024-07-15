@@ -116,6 +116,7 @@ function checkTranslation() {
         document.getElementById('result').innerText = `Неправильно. Правильный перевод: '${correctTranslation}'.`;
     }
     currentIndex++;
+    
     if (mode === 'to-russian' ){
         fetchImage(correctTranslation);
     } else {
