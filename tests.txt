@@ -1,0 +1,5 @@
+{
+	"created": true,
+	"chatId": "120363296913116138@g.us",
+	"groupInviteLink": "https://chat.whatsapp.com/EMLs9GUODr32Znt8PTUUXe"
+}

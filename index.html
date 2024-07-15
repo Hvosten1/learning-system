@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практика языка</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Практика языка</h1>
+        <div class="mode-select">
+            <label for="mode">Выберите режим:</label>
+            <select id="mode">
+                <option value="to-russian">Перевод на русский</option>
+                <option value="from-russian">Перевод с русского</option>
+            </select>
+        </div>
+        <div class="difficulty-select">
+            <label for="difficulty">Выберите уровень сложности:</label>
+            <select id="difficulty">
+                <option value="easy">Легкий</option>
+                <option value="medium">Средний</option>
+                <option value="hard">Сложный</option>
+            </select>
+        </div>
+        <div class="language-select">
+            <label for="language">Выберите язык:</label>
+            <select id="language">
+                <option value="tajik">Таджикский</option>
+                <option value="uzbek">Узбекский</option>
+                <option value="kyrgyz">Киргизский</option>
+                <option value="kazakh">Казахский</option>
+            </select>
+            <button class="btn" onclick="startGame()">Начать игру</button>
+            <button class="btn" onclick="startLearning()">Режим обучения</button>
+        </div>
+        <div class="learning-pack" style="display: none;">
+            <h2>Режим обучения</h2>
+            <h2 id="learning-title"></h2>
+            <input type="text" id="search-input" placeholder="Поиск по словам..." oninput="filterWords()">
+            <div class="learning-container" >
+                
+                <div id="learning-words" class="scrollable-list"></div>
+                
+            </div>
+            <button class="btn" onclick="goToStartScreen()">Вернуться к началу</button>
+        </div>
+        <div class="game-container" style="display: none;">
+            <div class="word-display">
+                <p id="word"></p>
+            </div>
+            <div class="translation-input">
+                <label for="translation">Введите перевод:</label>
+                <input type="text" id="translation">
+                <button class="btn" onclick="checkTranslation()">Подтвердить</button>
+            </div>
+            <div id="result"></div>
+            <div id="score"></div>
+            <div id="word-counter"></div>
+        </div>
+        <div class="result-screen" style="display: none;">
+            <h2 id="final-score"></h2>
+            <button class="btn" onclick="goToStartScreen()">Вернуться к началу</button>
+        </div>
+    </div>
+    <script src="words.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
