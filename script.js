@@ -116,14 +116,14 @@ function checkTranslation() {
         document.getElementById('result').innerText = `Неправильно. Правильный перевод: '${correctTranslation}'.`;
     }
     currentIndex++;
+
+    // if (mode === 'to-russian' ){
+    //     fetchImage(correctTranslation);
+    // } else {
+    //     fetchImage(input);
+    // } 
     
-    if (mode === 'to-russian' ){
-        fetchImage(correctTranslation);
-    } else {
-        fetchImage(input);
-    } 
-    
-    setTimeout(showNextWord, 3000);
+    setTimeout(showNextWord, 2000);
 
     
 }
