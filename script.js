@@ -103,6 +103,7 @@ function endGame() {
 function goToStartScreen() {
     document.querySelector('.result-screen').style.display = 'none';
     document.querySelector('.mode-select').style.display = 'block';
+    document.querySelector('.game-container').style.display = 'none';
     document.querySelector('.difficulty-select').style.display = 'block';
     document.querySelector('.language-select').style.display = 'block';
     document.querySelector('.learning-pack').style.display = 'none';
