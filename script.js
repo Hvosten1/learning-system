@@ -76,9 +76,34 @@ function showNextWord() {
         document.getElementById('translation').value = '';
         document.getElementById('result').innerText = '';
         document.getElementById('word-counter').innerText = `Слово ${currentIndex + 1} из ${totalRounds}`;
+        document.getElementById('image-container').innerHTML = '';
     } else {
         endGame();
     }
+}
+
+function fetchImage(query) {
+    const imageContainer = document.getElementById('image-container');
+    const url = `https://api.unsplash.com/search/photos?query=${query}&client_id=sKD_5rdGAuh12DQdGocPvwFP3Kj6GukGsY6xrwyIq88`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            if (data.results && data.results.length > 0) {
+                const imageUrl = data.results[0].urls.small;
+                const imgElement = document.createElement('img');
+                imgElement.src = imageUrl;
+                imgElement.alt = query;
+                imgElement.classList.add('result-image');
+                imageContainer.appendChild(imgElement);
+            } else {
+                //imageContainer.innerText = 'Изображение не найдено';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching image:', error);
+            imageContainer.innerText = 'Ошибка при загрузке изображения';
+        });
 }
 
 function checkTranslation() {
@@ -91,7 +116,15 @@ function checkTranslation() {
         document.getElementById('result').innerText = `Неправильно. Правильный перевод: '${correctTranslation}'.`;
     }
     currentIndex++;
-    setTimeout(showNextWord, 1000);
+    if (mode === 'to-russian' ){
+        fetchImage(correctTranslation);
+    } else {
+        fetchImage(input);
+    } 
+    
+    setTimeout(showNextWord, 3000);
+
+    
 }
 
 function endGame() {

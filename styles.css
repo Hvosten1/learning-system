@@ -134,6 +134,16 @@ input[type="text"]:focus {
     height: 300px;
 }
 
+#image-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.result-image {
+    max-width: 100%;
+    height: auto;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
