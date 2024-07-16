@@ -153,7 +153,7 @@ const words = {
             {
                 "word": "коғаз",
                 "translation": "бумага",
-                "translationEnglish": "paper",
+                "translationEnglish": "printer paper",
                 "sentenceForeign": "Ман коғаз ва қалам дорам.",
                 "sentenceRussian": "У меня есть бумага и ручка."
             },
@@ -576,7 +576,7 @@ const words = {
             {
                 "word": "qog'oz",
                 "translation": "бумага",
-                "translationEnglish": "paper",
+                "translationEnglish": "printer paper",
                 "sentenceForeign": "Men qog'oz va ruchka topdim.",
                 "sentenceRussian": "Я нашел бумагу и ручку."
             },
@@ -999,7 +999,7 @@ const words = {
             {
                 "word": "кагаз",
                 "translation": "бумага",
-                "translationEnglish": "paper",
+                "translationEnglish": "printer paper",
                 "sentenceForeign": "Мен кагаз менен калемим бар.",
                 "sentenceRussian": "У меня есть бумага и ручка."
             },
@@ -1415,7 +1415,7 @@ const words = {
             {
                 "word": "қағаз",
                 "translation": "бумага",
-                "translationEnglish": "paper",
+                "translationEnglish": "printer paper",
                 "sentenceForeign": "Менің қағазым мен қаламым бар.",
                 "sentenceRussian": "У меня есть бумага и ручка."
             },
