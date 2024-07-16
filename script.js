@@ -78,7 +78,10 @@ function showTrainingWord() {
         document.getElementById('training-translation').innerText = wordData.translation;
         document.getElementById('training-sentence-foreign').innerText = wordData.sentenceForeign;
         document.getElementById('training-sentence-russian').innerText = wordData.sentenceRussian;
-        if (category!="emotions")fetchImage(currentWords[currentIndex].translationEnglish.toLowerCase());
+        const imageContainer = document.getElementById('image-container-training');
+        if (document.getElementById('category').value!="emotions"){
+            fetchImage(currentWords[currentIndex].translationEnglish.toLowerCase(),imageContainer);
+        }
     } else {
         showTrainingEndScreen();
     }
@@ -95,6 +98,7 @@ function showTrainingEndScreen() {
 
 function nextTrainingWord() {
     currentIndex++;
+    document.getElementById('image-container-training').innerHTML = '';
     showTrainingWord();
 }
 
@@ -147,7 +151,11 @@ function checkTranslation() {
     } else {
         document.getElementById('result').innerText = `Неправильно. Правильный перевод: '${correctTranslation}'.`;
     }
-    if (category!="emotions")fetchImage(currentWords[currentIndex].translationEnglish.toLowerCase());
+    console.log(category);
+    const imageContainer = document.getElementById('image-container');
+    if (document.getElementById('category').value!="emotions"){
+        fetchImage(currentWords[currentIndex].translationEnglish.toLowerCase(),imageContainer);
+    }
     setTimeout(showNextWord, 2500);
     currentIndex++;
 
@@ -158,8 +166,8 @@ function checkTranslation() {
     
 }
 
-function fetchImage(query) {
-    const imageContainer = document.getElementById('image-container');
+function fetchImage(query,imageContainer) {
+    
     const url = `https://api.unsplash.com/search/photos?query=${query}&client_id=sKD_5rdGAuh12DQdGocPvwFP3Kj6GukGsY6xrwyIq88`;
 
     fetch(url)
@@ -173,7 +181,7 @@ function fetchImage(query) {
                 imgElement.classList.add('result-image');
                 imageContainer.appendChild(imgElement);
             } else {
-                //imageContainer.innerText = 'Изображение не найдено';
+                imageContainer.innerText = 'Изображение не найдено';
             }
         })
         .catch(error => {

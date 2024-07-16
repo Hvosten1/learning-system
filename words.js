@@ -172,13 +172,6 @@ const words = {
                 "sentenceRussian": "Это мой новый компьютер."
             },
             {
-                "word": "лаҳза",
-                "translation": "время",
-                "translationEnglish": "moment",
-                "sentenceForeign": "Лаҳзаи мо маҳдуд аст.",
-                "sentenceRussian": "Наше время ограничено."
-            },
-            {
                 "word": "чангал",
                 "translation": "лес",
                 "translationEnglish": "forest",
@@ -367,7 +360,7 @@ const words = {
             {
                 "word": "камера",
                 "translation": "камера",
-                "translationEnglish": "camera",
+                "translationEnglish": "photo camera",
                 "sentenceForeign": "Камераи ман видео мегирад.",
                 "sentenceRussian": "Моя камера снимает видео."
             },
@@ -797,7 +790,7 @@ const words = {
             {
                 "word": "kamera",
                 "translation": "камера",
-                "translationEnglish": "camera",
+                "translationEnglish": "photo camera",
                 "sentenceForeign": "Kamera sifatli surat oladi.",
                 "sentenceRussian": "Камера делает качественные фотографии."
             },
@@ -1025,13 +1018,6 @@ const words = {
                 "sentenceRussian": "Это мой новый компьютер."
             },
             {
-                "word": "учур",
-                "translation": "момент",
-                "translationEnglish": "moment",
-                "sentenceForeign": "Биздин учурубуз чектелген.",
-                "sentenceRussian": "Наше время ограничено."
-            },
-            {
                 "word": "токой",
                 "translation": "лес",
                 "translationEnglish": "forest",
@@ -1206,7 +1192,7 @@ const words = {
             {
                 "word": "плеер",
                 "translation": "плеер",
-                "translationEnglish": "player",
+                "translationEnglish": "mp3-player",
                 "sentenceForeign": "Мен плеерди угам.",
                 "sentenceRussian": "Я слушаю плеер."
             },
@@ -1220,7 +1206,7 @@ const words = {
             {
                 "word": "камера",
                 "translation": "камера",
-                "translationEnglish": "camera",
+                "translationEnglish": "photo camera",
                 "sentenceForeign": "Камера сапаттуу сүрөт тартат.",
                 "sentenceRussian": "Камера делает качественные фотографии."
             },
@@ -1248,7 +1234,7 @@ const words = {
             {
                 "word": "модем",
                 "translation": "модем",
-                "translationEnglish": "modem",
+                "translationEnglish": "wifi-router",
                 "sentenceForeign": "Модем интернетке туташкан.",
                 "sentenceRussian": "Модем подключен к интернету."
             },
@@ -1448,13 +1434,6 @@ const words = {
                 "sentenceRussian": "Это мой новый компьютер."
             },
             {
-                "word": "сәт",
-                "translation": "момент",
-                "translationEnglish": "moment",
-                "sentenceForeign": "Біздің сәтіміз шектеулі.",
-                "sentenceRussian": "Наше время ограничено."
-            },
-            {
                 "word": "орман",
                 "translation": "лес",
                 "translationEnglish": "forest",
@@ -1629,7 +1608,7 @@ const words = {
             {
                 "word": "плеер",
                 "translation": "плеер",
-                "translationEnglish": "player",
+                "translationEnglish": "mp3-player",
                 "sentenceForeign": "Мен плеерді тыңдаймын.",
                 "sentenceRussian": "Я слушаю плеер."
             },
@@ -1643,7 +1622,7 @@ const words = {
             {
                 "word": "камера",
                 "translation": "камера",
-                "translationEnglish": "camera",
+                "translationEnglish": "photo camera",
                 "sentenceForeign": "Камера сапалы сурет түсіреді.",
                 "sentenceRussian": "Камера делает качественные фотографии."
             },
@@ -1671,7 +1650,7 @@ const words = {
             {
                 "word": "модем",
                 "translation": "модем",
-                "translationEnglish": "modem",
+                "translationEnglish": "wifi-router",
                 "sentenceForeign": "Модем интернетке қосылған.",
                 "sentenceRussian": "Модем подключен к интернету."
             },

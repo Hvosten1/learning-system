@@ -134,9 +134,12 @@ input[type="text"]:focus {
     height: 300px;
 }
 
-#image-container {
-    margin-top: 20px;
+#image-container, #image-container-training {
+    margin: auto;
     text-align: center;
+    max-width: 300px;
+    max-height: 200px;
+    overflow: hidden;
 }
 
 .result-image {
