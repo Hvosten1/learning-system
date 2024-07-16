@@ -44,7 +44,15 @@
         <div class="learning-pack" style="display: none;">
             <h2>Режим обучения</h2>
             <h2 id="learning-title"></h2>
-            <input type="text" id="search-input" placeholder="Поиск по словам..." oninput="filterWords()">
+            <label for="learning-category">Категория:</label>
+            <select id="learning-category" onchange="filterLearningWords()">
+                <option value="all">Все категории</option>
+                <option value="emotions">Эмоции</option>
+                <option value="objects">Вещи</option>
+                <option value="nature">Природа</option>
+                <option value="technology">Техника</option>
+            </select>
+            <input type="text" id="search-input" placeholder="Поиск по словам..." oninput="filterLearningWords()">
             <div class="learning-container">
                 <div id="learning-words" class="scrollable-list"></div>
             </div>
@@ -74,7 +82,6 @@
                 <p id="training-sentence-foreign"></p>
                 <p id="training-sentence-russian"></p>
             </div>
-            <div id="training-image-container"></div>
             <button class="btn" onclick="nextTrainingWord()">Следующее слово</button>
             <button class="btn" onclick="goToStartScreen()">Вернуться к началу</button>
         </div>

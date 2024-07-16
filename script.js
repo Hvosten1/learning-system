@@ -16,7 +16,8 @@ const categoryNames = {
     "emotions": "Эмоции",
     "objects": "Вещи",
     "nature": "Природа",
-    "technology": "Техника"
+    "technology": "Техника",
+    "all": "Все категории"
 };
 
 document.getElementById('mode').addEventListener('change', function() {
@@ -53,6 +54,7 @@ function startLearning() {
     document.querySelector('.category-select').style.display = 'none';
     document.querySelector('.language-select').style.display = 'none';
     document.querySelector('.training-container').style.display = 'none';
+    document.getElementById('learning-category').value = category;
 }
 
 function startTraining() {
@@ -79,8 +81,8 @@ function showTrainingWord() {
         document.getElementById('training-sentence-foreign').innerText = wordData.sentenceForeign;
         document.getElementById('training-sentence-russian').innerText = wordData.sentenceRussian;
         const imageContainer = document.getElementById('image-container-training');
-        if (document.getElementById('category').value!="emotions"){
-            fetchImage(currentWords[currentIndex].translationEnglish.toLowerCase(),imageContainer);
+        if (document.getElementById('category').value != "emotions") {
+            fetchImage(currentWords[currentIndex].translationEnglish.toLowerCase(), imageContainer, 'training-image');
         }
     } else {
         showTrainingEndScreen();
@@ -104,7 +106,7 @@ function nextTrainingWord() {
 
 function showLearningWords(language, category) {
     const learningContainer = document.getElementById('learning-words');
-    document.getElementById('learning-title').innerText = `${languageNames[language]} словарь (${categoryNames[category]})`;
+    document.getElementById('learning-title').innerText = `${languageNames[language]} словарь `;
     
     learningContainer.innerHTML = '';
     currentWords.forEach(wordPair => {
@@ -115,11 +117,19 @@ function showLearningWords(language, category) {
     });
 }
 
-function filterWords() {
+function filterLearningWords() {
     const searchInput = document.getElementById('search-input').value.toLowerCase();
-    const filteredWords = currentWords.filter(wordPair =>
-        wordPair.word.toLowerCase().includes(searchInput) || wordPair.translation.toLowerCase().includes(searchInput)
-    );
+    const selectedCategory = document.getElementById('learning-category').value;
+    const language = document.getElementById('language').value;
+
+    filteredWords = selectedCategory === "all" 
+        ? Object.values(words[language]).flat().filter(wordPair => 
+            wordPair.word.toLowerCase().includes(searchInput) || 
+            wordPair.translation.toLowerCase().includes(searchInput))
+        : words[language][selectedCategory].filter(wordPair =>
+            wordPair.word.toLowerCase().includes(searchInput) || 
+            wordPair.translation.toLowerCase().includes(searchInput));
+    
     const learningContainer = document.getElementById('learning-words');
     learningContainer.innerHTML = '';
     filteredWords.forEach(wordPair => {
@@ -153,21 +163,14 @@ function checkTranslation() {
     }
     console.log(category);
     const imageContainer = document.getElementById('image-container');
-    if (document.getElementById('category').value!="emotions"){
-        fetchImage(currentWords[currentIndex].translationEnglish.toLowerCase(),imageContainer);
+    if (document.getElementById('category').value != "emotions") {
+        fetchImage(currentWords[currentIndex].translationEnglish.toLowerCase(), imageContainer);
     }
     setTimeout(showNextWord, 2500);
     currentIndex++;
-
-   
-    
-    
-
-    
 }
 
-function fetchImage(query,imageContainer) {
-    
+function fetchImage(query, imageContainer) {
     const url = `https://api.unsplash.com/search/photos?query=${query}&client_id=sKD_5rdGAuh12DQdGocPvwFP3Kj6GukGsY6xrwyIq88`;
 
     fetch(url)
