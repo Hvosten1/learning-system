@@ -1,7 +1,8 @@
 let currentWords = [];
+let filteredWords = [];
 let currentIndex = 0;
 let score = 0;
-let totalRounds = 0;
+let totalRounds = 10;
 let mode = "to-russian";
 
 const languageNames = {
@@ -16,45 +17,45 @@ document.getElementById('mode').addEventListener('change', function() {
 });
 
 function startGame() {
-    const difficulty = document.getElementById('difficulty').value;
+    const category = document.getElementById('category').value;
     const language = document.getElementById('language').value;
-    currentWords = shuffleArray(words[language][difficulty]);
+    currentWords = shuffleArray(words[language][category]);
     currentIndex = 0;
     score = 0;
-    totalRounds = difficulty === 'easy' ? 5 : (difficulty === 'medium' ? 10 : 15);
     
     document.querySelector('.game-container').style.display = 'block';
     document.querySelector('.result-screen').style.display = 'none';
     document.querySelector('.mode-select').style.display = 'none';
-    document.querySelector('.difficulty-select').style.display = 'none';
+    document.querySelector('.category-select').style.display = 'none';
     document.querySelector('.language-select').style.display = 'none';
     document.querySelector('.learning-pack').style.display = 'none';
     showNextWord();
 }
 
 function startLearning() {
-    const difficulty = document.getElementById('difficulty').value;
     const language = document.getElementById('language').value;
-    currentWordsLearn = [...words[language].easy, ...words[language].medium, ...words[language].hard];
-    filteredWords = currentWordsLearn;
+    const category = document.getElementById('category').value;
+    for (const category in words[language]) {
+        currentWords = currentWords.concat(words[language][category]);
+    }
     showLearningWords();
     
     document.querySelector('.learning-pack').style.display = 'block';
     document.querySelector('.game-container').style.display = 'none';
     document.querySelector('.result-screen').style.display = 'none';
     document.querySelector('.mode-select').style.display = 'none';
-    document.querySelector('.difficulty-select').style.display = 'none';
+    document.querySelector('.category-select').style.display = 'none';
     document.querySelector('.language-select').style.display = 'none';
 }
 
 function showLearningWords() {
     const learningContainer = document.getElementById('learning-words');
-   
     const language = document.getElementById('language').value;
-    document.getElementById('learning-title').innerText =languageNames[language]+" словарь";
+    const category = document.getElementById('category').value;
+    document.getElementById('learning-title').innerText = `${languageNames[language]}  словарь`;
     
     learningContainer.innerHTML = '';
-    filteredWords.forEach(wordPair => {
+    currentWords.forEach(wordPair => {
         const wordItem = document.createElement('div');
         wordItem.classList.add('word-item');
         wordItem.innerHTML = `<strong>${wordPair.word}</strong> - ${wordPair.translation}`;
@@ -64,10 +65,17 @@ function showLearningWords() {
 
 function filterWords() {
     const searchInput = document.getElementById('search-input').value.toLowerCase();
-    filteredWords = currentWordsLearn.filter(wordPair =>
+    const filteredWords = currentWords.filter(wordPair =>
         wordPair.word.toLowerCase().includes(searchInput) || wordPair.translation.toLowerCase().includes(searchInput)
     );
-    showLearningWords();
+    const learningContainer = document.getElementById('learning-words');
+    learningContainer.innerHTML = '';
+    filteredWords.forEach(wordPair => {
+        const wordItem = document.createElement('div');
+        wordItem.classList.add('word-item');
+        wordItem.innerHTML = `<strong>${wordPair.word}</strong> - ${wordPair.translation}`;
+        learningContainer.appendChild(wordItem);
+    });
 }
 
 function showNextWord() {
@@ -82,9 +90,25 @@ function showNextWord() {
     }
 }
 
+function checkTranslation() {
+    const input = document.getElementById('translation').value.trim().toLowerCase();
+    const correctTranslation = mode === 'to-russian' ? currentWords[currentIndex].translation.toLowerCase() : currentWords[currentIndex].word.toLowerCase();
+    if (input === correctTranslation) {
+        score++;
+        document.getElementById('result').innerText = 'Правильно!';
+    } else {
+        document.getElementById('result').innerText = `Неправильно. Правильный перевод: '${correctTranslation}'.`;
+    }
+    currentIndex++;
+
+    //fetchImage(input);
+
+    setTimeout(showNextWord, 1000);
+}
+
 function fetchImage(query) {
     const imageContainer = document.getElementById('image-container');
-    const url = `https://api.unsplash.com/search/photos?query=${query}&client_id=sKD_5rdGAuh12DQdGocPvwFP3Kj6GukGsY6xrwyIq88`;
+    const url = `https://api.unsplash.com/search/photos?query=${query}&client_id=YOUR_UNSPLASH_ACCESS_KEY`;
 
     fetch(url)
         .then(response => response.json())
@@ -97,35 +121,13 @@ function fetchImage(query) {
                 imgElement.classList.add('result-image');
                 imageContainer.appendChild(imgElement);
             } else {
-                //imageContainer.innerText = 'Изображение не найдено';
+                imageContainer.innerText = 'Изображение не найдено';
             }
         })
         .catch(error => {
             console.error('Error fetching image:', error);
             imageContainer.innerText = 'Ошибка при загрузке изображения';
         });
-}
-
-function checkTranslation() {
-    const input = document.getElementById('translation').value.trim().toLowerCase();
-    const correctTranslation = mode === 'to-russian' ? currentWords[currentIndex].translation.toLowerCase() : currentWords[currentIndex].word.toLowerCase();
-    if (input === correctTranslation) {
-        score++;
-        document.getElementById('result').innerText = 'Правильно!';
-    } else {
-        document.getElementById('result').innerText = `Неправильно. Правильный перевод: '${correctTranslation}'.`;
-    }
-    currentIndex++;
-
-    // if (mode === 'to-russian' ){
-    //     fetchImage(correctTranslation);
-    // } else {
-    //     fetchImage(input);
-    // } 
-    
-    setTimeout(showNextWord, 2000);
-
-    
 }
 
 function endGame() {
@@ -136,9 +138,9 @@ function endGame() {
 
 function goToStartScreen() {
     document.querySelector('.result-screen').style.display = 'none';
-    document.querySelector('.mode-select').style.display = 'block';
     document.querySelector('.game-container').style.display = 'none';
-    document.querySelector('.difficulty-select').style.display = 'block';
+    document.querySelector('.mode-select').style.display = 'block';
+    document.querySelector('.category-select').style.display = 'block';
     document.querySelector('.language-select').style.display = 'block';
     document.querySelector('.learning-pack').style.display = 'none';
 }

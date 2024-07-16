@@ -18,12 +18,14 @@
                 <option value="from-russian">Перевод с русского</option>
             </select>
         </div>
-        <div class="difficulty-select">
-            <label for="difficulty">Выберите уровень сложности:</label>
-            <select id="difficulty">
-                <option value="easy">Легкий</option>
-                <option value="medium">Средний</option>
-                <option value="hard">Сложный</option>
+        <div class="category-select">
+            <label for="category">Выберите категорию:</label>
+            <select id="category">
+                <option value="emotions">Эмоции</option>
+                <option value="objects">Вещи</option>
+                <option value="nature">Природа</option>
+                <option value="technology">Техника</option>
+                <!-- Добавьте больше категорий по мере необходимости -->
             </select>
         </div>
         <div class="language-select">
@@ -41,10 +43,8 @@
             <h2>Режим обучения</h2>
             <h2 id="learning-title"></h2>
             <input type="text" id="search-input" placeholder="Поиск по словам..." oninput="filterWords()">
-            <div class="learning-container" >
-                
+            <div class="learning-container">
                 <div id="learning-words" class="scrollable-list"></div>
-                
             </div>
             <button class="btn" onclick="goToStartScreen()">Вернуться к началу</button>
         </div>
