@@ -12,6 +12,13 @@ const languageNames = {
     "kazakh": "Казахский"
 };
 
+const categoryNames = {
+    "emotions": "Эмоции",
+    "objects": "Вещи",
+    "nature": "Природа",
+    "technology": "Техника"
+};
+
 document.getElementById('mode').addEventListener('change', function() {
     mode = this.value;
 });
@@ -35,10 +42,8 @@ function startGame() {
 function startLearning() {
     const language = document.getElementById('language').value;
     const category = document.getElementById('category').value;
-    for (const category in words[language]) {
-        currentWords = currentWords.concat(words[language][category]);
-    }
-    showLearningWords();
+    currentWords = words[language][category];
+    showLearningWords(language, category);
     
     document.querySelector('.learning-pack').style.display = 'block';
     document.querySelector('.game-container').style.display = 'none';
@@ -48,11 +53,9 @@ function startLearning() {
     document.querySelector('.language-select').style.display = 'none';
 }
 
-function showLearningWords() {
+function showLearningWords(language, category) {
     const learningContainer = document.getElementById('learning-words');
-    const language = document.getElementById('language').value;
-    const category = document.getElementById('category').value;
-    document.getElementById('learning-title').innerText = `${languageNames[language]}  словарь`;
+    document.getElementById('learning-title').innerText = `${languageNames[language]} словарь (${categoryNames[category]})`;
     
     learningContainer.innerHTML = '';
     currentWords.forEach(wordPair => {

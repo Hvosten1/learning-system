@@ -20,7 +20,7 @@ body {
     animation: fadeIn 1s forwards;
 }
 
-.mode-select, .difficulty-select, .language-select, .translation-input {
+.mode-select, .category-select, .language-select, .translation-input {
     margin: 20px 0;
     text-align: left;
 }
