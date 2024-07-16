@@ -144,6 +144,11 @@ input[type="text"]:focus {
     height: auto;
 }
 
+.training-buttons{
+    display: flex;
+
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
