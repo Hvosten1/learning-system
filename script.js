@@ -104,14 +104,19 @@ function checkTranslation() {
     }
     currentIndex++;
 
-    //fetchImage(input);
+    if (mode == "to-russian"){
+        fetchImage(correctTranslation);
+    }
+    else {
+        fetchImage(currentWords[currentIndex].translation.toLowerCase() );
+    }
 
-    setTimeout(showNextWord, 1000);
+    setTimeout(showNextWord, 2500);
 }
 
 function fetchImage(query) {
     const imageContainer = document.getElementById('image-container');
-    const url = `https://api.unsplash.com/search/photos?query=${query}&client_id=YOUR_UNSPLASH_ACCESS_KEY`;
+    const url = `https://api.unsplash.com/search/photos?query=${query}&client_id=sKD_5rdGAuh12DQdGocPvwFP3Kj6GukGsY6xrwyIq88`;
 
     fetch(url)
         .then(response => response.json())
@@ -124,7 +129,7 @@ function fetchImage(query) {
                 imgElement.classList.add('result-image');
                 imageContainer.appendChild(imgElement);
             } else {
-                imageContainer.innerText = 'Изображение не найдено';
+                //imageContainer.innerText = 'Изображение не найдено';
             }
         })
         .catch(error => {
