@@ -36,6 +36,7 @@ function startGame() {
     document.querySelector('.category-select').style.display = 'none';
     document.querySelector('.language-select').style.display = 'none';
     document.querySelector('.learning-pack').style.display = 'none';
+    document.querySelector('.training-container').style.display = 'none';
     showNextWord();
 }
 
@@ -51,6 +52,50 @@ function startLearning() {
     document.querySelector('.mode-select').style.display = 'none';
     document.querySelector('.category-select').style.display = 'none';
     document.querySelector('.language-select').style.display = 'none';
+    document.querySelector('.training-container').style.display = 'none';
+}
+
+function startTraining() {
+    const language = document.getElementById('language').value;
+    const category = document.getElementById('category').value;
+    currentWords = words[language][category];
+    currentIndex = 0;
+    
+    document.querySelector('.training-container').style.display = 'block';
+    document.querySelector('.learning-pack').style.display = 'none';
+    document.querySelector('.game-container').style.display = 'none';
+    document.querySelector('.result-screen').style.display = 'none';
+    document.querySelector('.mode-select').style.display = 'none';
+    document.querySelector('.category-select').style.display = 'none';
+    document.querySelector('.language-select').style.display = 'none';
+    showTrainingWord();
+}
+
+function showTrainingWord() {
+    if (currentIndex < currentWords.length) {
+        const wordData = currentWords[currentIndex];
+        document.getElementById('training-word').innerText = wordData.word;
+        document.getElementById('training-translation').innerText = wordData.translation;
+        document.getElementById('training-sentence-foreign').innerText = wordData.sentenceForeign;
+        document.getElementById('training-sentence-russian').innerText = wordData.sentenceRussian;
+        if (category!="emotions")fetchImage(currentWords[currentIndex].translationEnglish.toLowerCase());
+    } else {
+        showTrainingEndScreen();
+    }
+}
+
+function showTrainingEndScreen() {
+    const trainingContainer = document.querySelector('.training-container');
+    trainingContainer.innerHTML = `
+        <h2>Тренировка завершена!</h2>
+        <button class="btn" onclick="startGame()">Начать игру</button>
+        <button class="btn" onclick="goToStartScreen()">Вернуться к началу</button>
+    `;
+}
+
+function nextTrainingWord() {
+    currentIndex++;
+    showTrainingWord();
 }
 
 function showLearningWords(language, category) {
@@ -102,16 +147,15 @@ function checkTranslation() {
     } else {
         document.getElementById('result').innerText = `Неправильно. Правильный перевод: '${correctTranslation}'.`;
     }
+    if (category!="emotions")fetchImage(currentWords[currentIndex].translationEnglish.toLowerCase());
+    setTimeout(showNextWord, 2500);
     currentIndex++;
 
-    if (mode == "to-russian"){
-        fetchImage(correctTranslation);
-    }
-    else {
-        fetchImage(currentWords[currentIndex].translation.toLowerCase() );
-    }
+   
+    
+    
 
-    setTimeout(showNextWord, 2500);
+    
 }
 
 function fetchImage(query) {
@@ -151,6 +195,7 @@ function goToStartScreen() {
     document.querySelector('.category-select').style.display = 'block';
     document.querySelector('.language-select').style.display = 'block';
     document.querySelector('.learning-pack').style.display = 'none';
+    document.querySelector('.training-container').style.display = 'none';
 }
 
 function shuffleArray(array) {

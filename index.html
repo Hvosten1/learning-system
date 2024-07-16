@@ -25,7 +25,6 @@
                 <option value="objects">Вещи</option>
                 <option value="nature">Природа</option>
                 <option value="technology">Техника</option>
-                <!-- Добавьте больше категорий по мере необходимости -->
             </select>
         </div>
         <div class="language-select">
@@ -38,6 +37,7 @@
             </select>
             <button class="btn" onclick="startGame()">Начать игру</button>
             <button class="btn" onclick="startLearning()">Словарь</button>
+            <button class="btn" onclick="startTraining()">Режим тренировки</button>
         </div>
         <div class="learning-pack" style="display: none;">
             <h2>Режим обучения</h2>
@@ -62,6 +62,19 @@
             <div id="result"></div>
             <div id="score"></div>
             <div id="word-counter"></div>
+        </div>
+        <div class="training-container" style="display: none;">
+            <h2>Режим тренировки</h2>
+            <div class="word-display">
+                <div id="image-container"></div>
+                <p id="training-word"></p>
+                <p id="training-translation"></p>
+                <p id="training-sentence-foreign"></p>
+                <p id="training-sentence-russian"></p>
+            </div>
+            <div id="training-image-container"></div>
+            <button class="btn" onclick="nextTrainingWord()">Следующее слово</button>
+            <button class="btn" onclick="goToStartScreen()">Вернуться к началу</button>
         </div>
         <div class="result-screen" style="display: none;">
             <h2 id="final-score"></h2>
