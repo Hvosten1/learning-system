@@ -360,7 +360,7 @@ const words = {
             {
                 "word": "камера",
                 "translation": "камера",
-                "translationEnglish": "photo camera",
+                "translationEnglish": "camera",
                 "sentenceForeign": "Камераи ман видео мегирад.",
                 "sentenceRussian": "Моя камера снимает видео."
             },
@@ -790,7 +790,7 @@ const words = {
             {
                 "word": "kamera",
                 "translation": "камера",
-                "translationEnglish": "photo camera",
+                "translationEnglish": "camera",
                 "sentenceForeign": "Kamera sifatli surat oladi.",
                 "sentenceRussian": "Камера делает качественные фотографии."
             },
@@ -1206,7 +1206,7 @@ const words = {
             {
                 "word": "камера",
                 "translation": "камера",
-                "translationEnglish": "photo camera",
+                "translationEnglish": "camera",
                 "sentenceForeign": "Камера сапаттуу сүрөт тартат.",
                 "sentenceRussian": "Камера делает качественные фотографии."
             },
@@ -1622,7 +1622,7 @@ const words = {
             {
                 "word": "камера",
                 "translation": "камера",
-                "translationEnglish": "photo camera",
+                "translationEnglish": "camera",
                 "sentenceForeign": "Камера сапалы сурет түсіреді.",
                 "sentenceRussian": "Камера делает качественные фотографии."
             },
