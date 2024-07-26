@@ -9,66 +9,78 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    
     <div class="container">
-        <h1>Практика языка</h1>
-        <div class="mode-select">
-            <label for="mode">Выберите режим:</label>
-            <select id="mode">
-                <option value="to-russian">Перевод на русский</option>
-                <option value="from-russian">Перевод с русского</option>
-            </select>
-        </div>
-        <div class="category-select">
-            <label for="category">Выберите категорию:</label>
-            <select id="category">
-                <option value="all">Все категории</option>
-                <option value="emotions">Эмоции</option>
-                <option value="animals">Животные</option>
-                <option value="nature">Природа</option>
-                <option value="technology">Техника</option>
-                <option value="food">Еда</option>
-                <option value="professions">Профессии</option>
-                <option value="household">Домашние предметы</option>
-                <option value="sports">Спорт</option>
-                <option value="transport">Транспорт</option>
-            </select>
-        </div>
-        <div class="language-select">
-            <label for="language">Выберите язык:</label>
-            <select id="language">
+        <div class="language-switch">
+            <label for="interface-language">Язык интерфейса:</label>
+            <select id="interface-language" onchange="switchInterfaceLanguage()">
+                <option value="ru">Русский</option>
                 <option value="tajik">Таджикский</option>
                 <option value="uzbek">Узбекский</option>
                 <option value="kyrgyz">Киргизский</option>
                 <option value="kazakh">Казахский</option>
             </select>
-            <button class="btn" id="start-game" onclick="startGame()">Начать игру</button>
+        </div>
+        <h1 data-i18n="title">Практика языка</h1>
+        <div class="mode-select">
+            <label for="mode" data-i18n="select-mode">Выберите режим:</label>
+            <select id="mode">
+                <option value="to-russian" data-i18n="to-russian">Перевод на русский</option>
+                <option value="from-russian" data-i18n="from-russian">Перевод с русского</option>
+            </select>
+        </div>
+        <div class="category-select">
+            <label for="category" data-i18n="select-category">Выберите категорию:</label>
+            <select id="category">
+                <option value="all" data-i18n="all-categories">Все категории</option>
+                <option value="emotions" data-i18n="emotions">Эмоции</option>
+                <option value="animals" data-i18n="animals">Животные</option>
+                <option value="nature" data-i18n="nature">Природа</option>
+                <option value="technology" data-i18n="technology">Техника</option>
+                <option value="food" data-i18n="food">Еда</option>
+                <option value="professions" data-i18n="professions">Профессии</option>
+                <option value="household" data-i18n="household">Домашние предметы</option>
+                <option value="sports" data-i18n="sports">Спорт</option>
+                <option value="transport" data-i18n="transport">Транспорт</option>
+                <option value="school" data-i18n="school">Школа</option>
+            </select>
+        </div>
+        <div class="language-select">
+            <label for="language" data-i18n="select-language">Выберите язык:</label>
+            <select id="language">
+                <option value="tajik" data-i18n="tajik">Таджикский</option>
+                <option value="uzbek" data-i18n="uzbek">Узбекский</option>
+                <option value="kyrgyz" data-i18n="kyrgyz">Киргизский</option>
+                <option value="kazakh" data-i18n="kazakh">Казахский</option>
+            </select>
+            <button class="btn" data-i18n="start-game" onclick="startGame()">Начать игру</button>
             <div class="training-buttons">
-                <button class="btn" onclick="startLearning()">Словарь</button>
-                <button class="btn" onclick="startTraining()">Режим тренировки</button>
+                <button class="btn" data-i18n="dictionary" onclick="startLearning()">Словарь</button>
+                <button class="btn" data-i18n="training-mode" onclick="startTraining()">Режим тренировки</button>
             </div>
         </div>
         <div class="learning-pack" style="display: none;">
-            <h2>Режим обучения</h2>
+            
             <h2 id="learning-title"></h2>
-            <label for="learning-category">Категория:</label>
+            <label for="learning-category" data-i18n="category">Категория:</label>
             <select id="learning-category" onchange="filterLearningWords()">
-                <option value="all">Все категории</option>
-                <option value="emotions">Эмоции</option>
-                <option value="animals">Животные</option>
-                <option value="nature">Природа</option>
-                <option value="technology">Техника</option>
-                <option value="food">Еда</option>
-                <option value="professions">Профессии</option>
-                <option value="household">Домашние предметы</option>
-                <option value="sports">Спорт</option>
-                <option value="transport">Транспорт</option>
-                <option value="school">Школа</option>
+                <option value="all" data-i18n="all-categories">Все категории</option>
+                <option value="emotions" data-i18n="emotions">Эмоции</option>
+                <option value="animals" data-i18n="animals">Животные</option>
+                <option value="nature" data-i18n="nature">Природа</option>
+                <option value="technology" data-i18n="technology">Техника</option>
+                <option value="food" data-i18n="food">Еда</option>
+                <option value="professions" data-i18n="professions">Профессии</option>
+                <option value="household" data-i18n="household">Домашние предметы</option>
+                <option value="sports" data-i18n="sports">Спорт</option>
+                <option value="transport" data-i18n="transport">Транспорт</option>
+                <option value="school" data-i18n="school">Школа</option>
             </select>
             <input type="text" id="search-input" placeholder="Поиск по словам..." oninput="filterLearningWords()">
             <div class="learning-container">
                 <div id="learning-words" class="scrollable-list"></div>
             </div>
-            <button class="btn" onclick="goToStartScreen()">Вернуться к началу</button>
+            <button class="btn" data-i18n="back-to-start" onclick="goToStartScreen()">Вернуться к началу</button>
         </div>
         <div class="game-container" style="display: none;">
             <div id="image-container"></div>
@@ -76,17 +88,17 @@
                 <p id="word"></p>
             </div>
             <div class="translation-input">
-                <label for="translation">Введите перевод:</label>
+                <label for="translation" data-i18n="enter-translation">Введите перевод:</label>
                 <input type="text" id="translation">
-                <button class="btn" onclick="checkTranslation()">Подтвердить</button>
-                <button class="btn" onclick="goToStartScreen()">Вернуться к началу</button>
+                <button class="btn" data-i18n="confirm" onclick="checkTranslation()">Подтвердить</button>
+                <button class="btn" data-i18n="back-to-start" onclick="goToStartScreen()">Вернуться к началу</button>
             </div>
             <div id="result"></div>
             <div id="score"></div>
             <div id="word-counter"></div>
         </div>
         <div class="training-container" style="display: none;">
-            <h2>Режим тренировки</h2>
+            <h2 data-i18n="training-mode">Режим тренировки</h2>
             <div class="word-display">
                 <div id="image-container-training"></div>
                 <p id="training-word"></p>
@@ -94,12 +106,12 @@
                 <p id="training-sentence-foreign"></p>
                 <p id="training-sentence-russian"></p>
             </div>
-            <button class="btn" onclick="nextTrainingWord()">Следующее слово</button>
-            <button class="btn" onclick="goToStartScreen()">Вернуться к началу</button>
+            <button class="btn" data-i18n="next-word" onclick="nextTrainingWord()">Следующее слово</button>
+            <button class="btn" data-i18n="back-to-start" onclick="goToStartScreen()">Вернуться к началу</button>
         </div>
         <div class="result-screen" style="display: none;">
             <h2 id="final-score"></h2>
-            <button class="btn" onclick="goToStartScreen()">Вернуться к началу</button>
+            <button class="btn" data-i18n="back-to-start" onclick="goToStartScreen()">Вернуться к началу</button>
         </div>
     </div>
     <script src="words.js"></script>
