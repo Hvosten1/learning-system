@@ -13,11 +13,17 @@ const languageNames = {
 };
 
 const categoryNames = {
+    "all": "Все категории",
     "emotions": "Эмоции",
-    "objects": "Вещи",
+    "animals": "Животные",
     "nature": "Природа",
     "technology": "Техника",
-    "all": "Все категории"
+    "food": "Еда",
+    "professions": "Профессии",
+    "household": "Домашние предметы",
+    "sports": "Спорт",
+    "transport": "Транспорт",
+    "school": "Школа"
 };
 
 document.getElementById('mode').addEventListener('change', function() {
@@ -27,10 +33,12 @@ document.getElementById('mode').addEventListener('change', function() {
 function startGame() {
     const category = document.getElementById('category').value;
     const language = document.getElementById('language').value;
-    currentWords = shuffleArray(words[language][category]);
+    currentWords = category === "all" 
+        ? shuffleArray(Object.values(words).flat().map(word => ({ ...word, word: word.translations[language], translation: word.translations['russian'], sentenceForeign: word.sentences[language], sentenceRussian: word.sentences['russian'] })))
+        : shuffleArray(words[category].map(word => ({ ...word, word: word.translations[language], translation: word.translations['russian'], sentenceForeign: word.sentences[language], sentenceRussian: word.sentences['russian'] })));
     currentIndex = 0;
     score = 0;
-    
+
     document.querySelector('.game-container').style.display = 'block';
     document.querySelector('.result-screen').style.display = 'none';
     document.querySelector('.mode-select').style.display = 'none';
@@ -44,9 +52,11 @@ function startGame() {
 function startLearning() {
     const language = document.getElementById('language').value;
     const category = document.getElementById('category').value;
-    currentWords = words[language][category];
+    currentWords = category === "all" 
+        ? Object.values(words).flat().map(word => ({ ...word, word: word.translations[language], translation: word.translations['russian'], sentenceForeign: word.sentences[language], sentenceRussian: word.sentences['russian'] }))
+        : words[category].map(word => ({ ...word, word: word.translations[language], translation: word.translations['russian'], sentenceForeign: word.sentences[language], sentenceRussian: word.sentences['russian'] }));
     showLearningWords(language, category);
-    
+
     document.querySelector('.learning-pack').style.display = 'block';
     document.querySelector('.game-container').style.display = 'none';
     document.querySelector('.result-screen').style.display = 'none';
@@ -60,9 +70,11 @@ function startLearning() {
 function startTraining() {
     const language = document.getElementById('language').value;
     const category = document.getElementById('category').value;
-    currentWords = words[language][category];
+    currentWords = category === "all" 
+        ? Object.values(words).flat().map(word => ({ ...word, word: word.translations[language], translation: word.translations['russian'], sentenceForeign: word.sentences[language], sentenceRussian: word.sentences['russian'] }))
+        : words[category].map(word => ({ ...word, word: word.translations[language], translation: word.translations['russian'], sentenceForeign: word.sentences[language], sentenceRussian: word.sentences['russian'] }));
     currentIndex = 0;
-    
+
     document.querySelector('.training-container').style.display = 'block';
     document.querySelector('.learning-pack').style.display = 'none';
     document.querySelector('.game-container').style.display = 'none';
@@ -81,8 +93,8 @@ function showTrainingWord() {
         document.getElementById('training-sentence-foreign').innerText = wordData.sentenceForeign;
         document.getElementById('training-sentence-russian').innerText = wordData.sentenceRussian;
         const imageContainer = document.getElementById('image-container-training');
-        if (document.getElementById('category').value != "emotions") {
-            fetchImage(currentWords[currentIndex].translationEnglish.toLowerCase(), imageContainer, 'training-image');
+        if (wordData.translationEnglish) {
+            fetchImage(wordData.translationEnglish.toLowerCase(), imageContainer, 'training-image');
         }
     } else {
         showTrainingEndScreen();
@@ -106,8 +118,8 @@ function nextTrainingWord() {
 
 function showLearningWords(language, category) {
     const learningContainer = document.getElementById('learning-words');
-    document.getElementById('learning-title').innerText = `${languageNames[language]} словарь `;
-    
+    document.getElementById('learning-title').innerText = `${languageNames[language]} словарь (${categoryNames[category]})`;
+
     learningContainer.innerHTML = '';
     currentWords.forEach(wordPair => {
         const wordItem = document.createElement('div');
@@ -123,19 +135,19 @@ function filterLearningWords() {
     const language = document.getElementById('language').value;
 
     filteredWords = selectedCategory === "all" 
-        ? Object.values(words[language]).flat().filter(wordPair => 
-            wordPair.word.toLowerCase().includes(searchInput) || 
-            wordPair.translation.toLowerCase().includes(searchInput))
-        : words[language][selectedCategory].filter(wordPair =>
-            wordPair.word.toLowerCase().includes(searchInput) || 
-            wordPair.translation.toLowerCase().includes(searchInput));
-    
+        ? Object.values(words).flat().filter(word => 
+            word.translations[language].toLowerCase().includes(searchInput) || 
+            word.translations['russian'].toLowerCase().includes(searchInput))
+        : words[selectedCategory].filter(word =>
+            word.translations[language].toLowerCase().includes(searchInput) || 
+            word.translations['russian'].toLowerCase().includes(searchInput));
+
     const learningContainer = document.getElementById('learning-words');
     learningContainer.innerHTML = '';
     filteredWords.forEach(wordPair => {
         const wordItem = document.createElement('div');
         wordItem.classList.add('word-item');
-        wordItem.innerHTML = `<strong>${wordPair.word}</strong> - ${wordPair.translation}`;
+        wordItem.innerHTML = `<strong>${wordPair.translations[language]}</strong> - ${wordPair.translations['russian']}`;
         learningContainer.appendChild(wordItem);
     });
 }
@@ -161,9 +173,8 @@ function checkTranslation() {
     } else {
         document.getElementById('result').innerText = `Неправильно. Правильный перевод: '${correctTranslation}'.`;
     }
-    console.log(category);
     const imageContainer = document.getElementById('image-container');
-    if (document.getElementById('category').value != "emotions") {
+    if (currentWords[currentIndex].translationEnglish) {
         fetchImage(currentWords[currentIndex].translationEnglish.toLowerCase(), imageContainer);
     }
     setTimeout(showNextWord, 2500);
@@ -216,3 +227,9 @@ function shuffleArray(array) {
     }
     return array;
 }
+
+document.getElementById('start-game').onclick = startGame;
+document.getElementById('start-learning').onclick = startLearning;
+document.getElementById('check-answer').onclick = checkTranslation;
+document.getElementById('go-to-start-screen').onclick = goToStartScreen;
+document.getElementById('search-input').addEventListener('input', filterLearningWords);
