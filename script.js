@@ -54,7 +54,13 @@ const translations = {
         "next-word": "Следующее слово",
         "back-to-start": "Вернуться к началу",
         "learning-mode": "Режим обучения",
-        "category": "Категория:"
+        "category": "Категория:",
+        "interface-language": "Язык интерфейса",
+        "lang-ru": "Русский",
+        "lang-tajik": "Таджикский",
+        "lang-uzbek": "Узбекский",
+        "lang-kyrgyz": "Киргизский",
+        "lang-kazakh": "Казахский"
     },
     "tajik": {
         "title": "Амали забон",
@@ -82,7 +88,13 @@ const translations = {
         "next-word": "Калимаи навбатӣ",
         "back-to-start": "Ба оғози бозгашт",
         "learning-mode": "Режими омӯзиш",
-        "category": "Категория:"
+        "category": "Категория:",
+        "interface-language": "Забони интерфейс",
+        "lang-ru": "Русӣ",
+        "lang-tajik": "Тоҷикӣ",
+        "lang-uzbek": "Ӯзбекӣ",
+        "lang-kyrgyz": "Қирғизӣ",
+        "lang-kazakh": "Қазоқӣ"
     },
     "uzbek": {
         "title": "Til amaliyoti",
@@ -110,7 +122,13 @@ const translations = {
         "next-word": "Keyingi so'z",
         "back-to-start": "Boshlashga qaytish",
         "learning-mode": "O'rganish rejimi",
-        "category": "Toifa:"
+        "category": "Toifa:",
+        "interface-language": "Interfeys tili",
+        "lang-ru": "Rus tili",
+        "lang-tajik": "Tojik tili",
+        "lang-uzbek": "O'zbek tili",
+        "lang-kyrgyz": "Qirg'iz tili",
+        "lang-kazakh": "Qazaq tili"
     },
     "kyrgyz": {
         "title": "Тил практикасы",
@@ -138,7 +156,13 @@ const translations = {
         "next-word": "Кийинки сөз",
         "back-to-start": "Баштоого кайтуу",
         "learning-mode": "Окутуу режими",
-        "category": "Категория:"
+        "category": "Категория:",
+        "interface-language": "Интерфейс тили",
+        "lang-ru": "Орусча",
+        "lang-tajik": "Тажикче",
+        "lang-uzbek": "Өзбекче",
+        "lang-kyrgyz": "Кыргызча",
+        "lang-kazakh": "Казакча"
     },
     "kazakh": {
         "title": "Тіл практикасы",
@@ -166,7 +190,13 @@ const translations = {
         "next-word": "Келесі сөз",
         "back-to-start": "Бастауға оралу",
         "learning-mode": "Оқыту режимі",
-        "category": "Санат:"
+        "category": "Санат:",
+        "interface-language": "Интерфейс тілі",
+        "lang-ru": "Орысша",
+        "lang-tajik": "Тәжікше",
+        "lang-uzbek": "Өзбекше",
+        "lang-kyrgyz": "Қырғызша",
+        "lang-kazakh": "Қазақша"
     }
 };
 
@@ -281,7 +311,7 @@ function nextTrainingWord() {
 
 function showLearningWords(language, category) {
     const learningContainer = document.getElementById('learning-words');
-    document.getElementById('learning-title').innerText = `${languageNames[language]} словарь (${categoryNames[category]})`;
+    
 
     learningContainer.innerHTML = '';
     currentWords.forEach(wordPair => {
