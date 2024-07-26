@@ -1,425 +1,167 @@
 const words = {
     "tajik": {
         "emotions": [
-            {
-                "word": "хурсандӣ",
-                "translation": "радость",
-                "translationEnglish": "joy",
-                "sentenceForeign": "Ман аз хурсандӣ пур ҳастам.",
-                "sentenceRussian": "Я полон радости."
-            },
-            {
-                "word": "ғамгинӣ",
-                "translation": "печаль",
-                "translationEnglish": "sadness",
-                "sentenceForeign": "Ӯ дар ғамгинӣ ғарқ шудааст.",
-                "sentenceRussian": "Он утонул в печали."
-            },
-            {
-                "word": "тарс",
-                "translation": "страх",
-                "translationEnglish": "fear",
-                "sentenceForeign": "Ман аз саг тарс дорам.",
-                "sentenceRussian": "Я боюсь страха перед собакой."
-            },
-            {
-                "word": "хашм",
-                "translation": "гнев",
-                "translationEnglish": "anger",
-                "sentenceForeign": "Хашмро намешавад назорат кард.",
-                "sentenceRussian": "Гнев невозможно контролировать."
-            },
-            {
-                "word": "ҳаяҷон",
-                "translation": "волнение",
-                "translationEnglish": "excitement",
-                "sentenceForeign": "Ман аз ин хабар ҳаяҷон дорам.",
-                "sentenceRussian": "Я волнуюсь из-за этой новости."
-            },
-            {
-                "word": "маҳзунӣ",
-                "translation": "огорчение",
-                "translationEnglish": "disappointment",
-                "sentenceForeign": "Ин ҳодиса маҳзунӣ овард.",
-                "sentenceRussian": "Это событие привело к огорчению."
-            },
-            {
-                "word": "ғазаб",
-                "translation": "ярость",
-                "translationEnglish": "rage",
-                "sentenceForeign": "Ӯ дар ғазаб омадааст.",
-                "sentenceRussian": "Он в ярости."
-            },
-            {
-                "word": "шодӣ",
-                "translation": "счастье",
-                "translationEnglish": "happiness",
-                "sentenceForeign": "Шодӣ дар чашмони ӯ дида мешавад.",
-                "sentenceRussian": "Счастье видно в его глазах."
-            },
-            {
-                "word": "муҳаббат",
-                "translation": "любовь",
-                "translationEnglish": "love",
-                "sentenceForeign": "Муҳаббат ба оила муҳим аст.",
-                "sentenceRussian": "Любовь к семье важна."
-            },
-            {
-                "word": "кӯҳнарин",
-                "translation": "усталость",
-                "translationEnglish": "tiredness",
-                "sentenceForeign": "Ман кӯҳнарин шудаам.",
-                "sentenceRussian": "Я испытываю усталость."
-            },
-            {
-                "word": "ғурур",
-                "translation": "гордость",
-                "translationEnglish": "pride",
-                "sentenceForeign": "Ғурур аз дастовардҳои худ дорам.",
-                "sentenceRussian": "Горжусь своими достижениями."
-            },
-            {
-                "word": "ноумедӣ",
-                "translation": "разочарование",
-                "translationEnglish": "disappointment",
-                "sentenceForeign": "Ноумедӣ дар суханони ӯ буд.",
-                "sentenceRussian": "В его словах было разочарование."
-            },
-            {
-                "word": "умед",
-                "translation": "надежда",
-                "translationEnglish": "hope",
-                "sentenceForeign": "Умед дар дили ман аст.",
-                "sentenceRussian": "Надежда в моем сердце."
-            },
-            {
-                "word": "иродат",
-                "translation": "воля",
-                "translationEnglish": "will",
-                "sentenceForeign": "Ӯ иродати қавӣ дорад.",
-                "sentenceRussian": "У него сильная воля."
-            },
-            {
-                "word": "сабр",
-                "translation": "терпение",
-                "translationEnglish": "patience",
-                "sentenceForeign": "Сабр калиди муваффақият аст.",
-                "sentenceRussian": "Терпение - ключ к успеху."
-            }
+            { "word": "хурсандӣ", "translation": "радость", "translationEnglish": "joy", "sentenceForeign": "Ман аз ғалабаи худ хурсандӣ мекунам.", "sentenceRussian": "Я радуюсь своей победе." },
+            { "word": "ғам", "translation": "печаль", "translationEnglish": "sadness", "sentenceForeign": "Ғам дар дили ман ҷойгир аст.", "sentenceRussian": "Печаль в моем сердце." },
+            { "word": "тарс", "translation": "страх", "translationEnglish": "fear", "sentenceForeign": "Ман аз торикӣ тарсидам.", "sentenceRussian": "Я боюсь темноты." },
+            { "word": "ғазаб", "translation": "гнев", "translationEnglish": "anger", "sentenceForeign": "Ман аз рафтори ӯ ғазабнокам.", "sentenceRussian": "Я злюсь на его поведение." },
+            { "word": "шодӣ", "translation": "радость", "translationEnglish": "joy", "sentenceForeign": "Шодӣ дар ҷашни зодрӯзӣ.", "sentenceRussian": "Радость на дне рождения." },
+            { "word": "ғамгин", "translation": "печальный", "translationEnglish": "sad", "sentenceForeign": "Ман имрӯз ғамгинам.", "sentenceRussian": "Я сегодня печален." },
+            { "word": "фахр", "translation": "гордость", "translationEnglish": "pride", "sentenceForeign": "Ман аз дастовардҳои худ фахр мекунам.", "sentenceRussian": "Я горжусь своими достижениями." },
+            { "word": "таассуф", "translation": "разочарование", "translationEnglish": "disappointment", "sentenceForeign": "Хабари нохуш маро таассуф кард.", "sentenceRussian": "Плохие новости меня разочаровали." },
+            { "word": "ҳаяҷон", "translation": "волнение", "translationEnglish": "excitement", "sentenceForeign": "Пеш аз сафари мо ҳаяҷон доштем.", "sentenceRussian": "Перед поездкой мы были взволнованы." },
+            { "word": "ҳаловат", "translation": "удовольствие", "translationEnglish": "pleasure", "sentenceForeign": "Ин филм ҳаловат мебахшад.", "sentenceRussian": "Этот фильм приносит удовольствие." },
+            { "word": "аҳд", "translation": "обещание", "translationEnglish": "promise", "sentenceForeign": "Ман ба ту аҳд медиҳам.", "sentenceRussian": "Я обещаю тебе." },
+            { "word": "ишқ", "translation": "любовь", "translationEnglish": "love", "sentenceForeign": "Ишқ оташи дил аст.", "sentenceRussian": "Любовь - это огонь в сердце." },
+            { "word": "кӯҳ", "translation": "грусть", "translationEnglish": "sorrow", "sentenceForeign": "Кӯҳ аз даст додани дӯстам.", "sentenceRussian": "Грусть от потери друга." },
+            { "word": "шарм", "translation": "стыд", "translationEnglish": "shame", "sentenceForeign": "Аз кирдораш шарм медошт.", "sentenceRussian": "Ему было стыдно за свои поступки." },
+            { "word": "самимият", "translation": "искренность", "translationEnglish": "sincerity", "sentenceForeign": "Самимият дар суханони ӯ эҳсос мешавад.", "sentenceRussian": "В его словах чувствуется искренность." }
         ],
-        "objects": [
-            {
-                "word": "китоб",
-                "translation": "книга",
-                "translationEnglish": "book",
-                "sentenceForeign": "Ман як китоб мехонам.",
-                "sentenceRussian": "Я читаю книгу."
-            },
-            {
-                "word": "мошин",
-                "translation": "машина",
-                "translationEnglish": "car",
-                "sentenceForeign": "Мошини ман сурхи ранг аст.",
-                "sentenceRussian": "Моя машина красного цвета."
-            },
-            {
-                "word": "миз",
-                "translation": "стол",
-                "translationEnglish": "table",
-                "sentenceForeign": "Ин миз аз чӯб сохта шудааст.",
-                "sentenceRussian": "Этот стол сделан из дерева."
-            },
-            {
-                "word": "курси",
-                "translation": "стул",
-                "translationEnglish": "chair",
-                "sentenceForeign": "Ман дар курси нишастаам.",
-                "sentenceRussian": "Я сижу на стуле."
-            },
-            {
-                "word": "рақам",
-                "translation": "телефон",
-                "translationEnglish": "telephone",
-                "sentenceForeign": "Ман рақами телефонро истифода мебарам.",
-                "sentenceRussian": "Я использую телефонный номер."
-            },
-            {
-                "word": "хона",
-                "translation": "дом",
-                "translationEnglish": "house",
-                "sentenceForeign": "Хонаи мо калон ва зебо аст.",
-                "sentenceRussian": "Наш дом большой и красивый."
-            },
-            {
-                "word": "коғаз",
-                "translation": "бумага",
-                "translationEnglish": "printer paper",
-                "sentenceForeign": "Ман коғаз ва қалам дорам.",
-                "sentenceRussian": "У меня есть бумага и ручка."
-            },
-            {
-                "word": "қалам",
-                "translation": "ручка",
-                "translationEnglish": "pen",
-                "sentenceForeign": "Ман бо қалам навиштаам.",
-                "sentenceRussian": "Я пишу ручкой."
-            },
-            {
-                "word": "компютер",
-                "translation": "компьютер",
-                "translationEnglish": "computer",
-                "sentenceForeign": "Ин компютер нави ман аст.",
-                "sentenceRussian": "Это мой новый компьютер."
-            },
-            {
-                "word": "чангал",
-                "translation": "лес",
-                "translationEnglish": "forest",
-                "sentenceForeign": "Мо ба чангал меравем.",
-                "sentenceRussian": "Мы идем в лес."
-            },
-            {
-                "word": "шаҳр",
-                "translation": "город",
-                "translationEnglish": "city",
-                "sentenceForeign": "Шаҳр дар наздикӣ аст.",
-                "sentenceRussian": "Город поблизости."
-            },
-            {
-                "word": "қуттӣ",
-                "translation": "коробка",
-                "translationEnglish": "box",
-                "sentenceForeign": "Ман қуттӣ пайдо кардам.",
-                "sentenceRussian": "Я нашел коробку."
-            },
-            {
-                "word": "дарвоза",
-                "translation": "ворота",
-                "translationEnglish": "gate",
-                "sentenceForeign": "Дарвоза кушода аст.",
-                "sentenceRussian": "Ворота открыты."
-            },
-            {
-                "word": "гул",
-                "translation": "цветок",
-                "translationEnglish": "flower",
-                "sentenceForeign": "Гулҳо дар боғ ҳастанд.",
-                "sentenceRussian": "Цветы находятся в саду."
-            }
+        "animals": [
+            { "word": "гурба", "translation": "кошка", "translationEnglish": "cat", "sentenceForeign": "Гурба болои диван нишастааст.", "sentenceRussian": "Кошка сидит на диване." },
+            { "word": "саг", "translation": "собака", "translationEnglish": "dog", "sentenceForeign": "Саг дар кӯча медавад.", "sentenceRussian": "Собака бегает по улице." },
+            { "word": "парранда", "translation": "птица", "translationEnglish": "bird", "sentenceForeign": "Парранда дар осмон парвоз мекунад.", "sentenceRussian": "Птица летает в небе." },
+            { "word": "моҳӣ", "translation": "рыба", "translationEnglish": "fish", "sentenceForeign": "Моҳӣ дар об шино мекунад.", "sentenceRussian": "Рыба плавает в воде." },
+            { "word": "хирс", "translation": "медведь", "translationEnglish": "bear", "sentenceForeign": "Хирс дар ҷангал зиндаги мекунад.", "sentenceRussian": "Медведь живет в лесу." },
+            { "word": "шутур", "translation": "верблюд", "translationEnglish": "camel", "sentenceForeign": "Шутур дар биёбон аст.", "sentenceRussian": "Верблюд находится в пустыне." },
+            { "word": "харгӯш", "translation": "кролик", "translationEnglish": "rabbit", "sentenceForeign": "Харгӯш дар алаф хӯрок мехӯрад.", "sentenceRussian": "Кролик ест траву." },
+            { "word": "гусфанд", "translation": "овца", "translationEnglish": "sheep", "sentenceForeign": "Гусфанд дар чарогоҳ аст.", "sentenceRussian": "Овца на пастбище." },
+            { "word": "асал", "translation": "пчела", "translationEnglish": "bee", "sentenceForeign": "Асал гулро ҷамъ мекунад.", "sentenceRussian": "Пчела собирает нектар с цветов." },
+            { "word": "муш", "translation": "мышь", "translationEnglish": "mouse", "sentenceForeign": "Муш дар хонаи мо аст.", "sentenceRussian": "Мышь в нашем доме." },
+            { "word": "бука", "translation": "бык", "translationEnglish": "bull", "sentenceForeign": "Бука дар майдон рақобат мекунад.", "sentenceRussian": "Бык сражается на арене." },
+            { "word": "гав", "translation": "корова", "translationEnglish": "cow", "sentenceForeign": "Гав дар саҳро аст.", "sentenceRussian": "Корова на поле." },
+            { "word": "асп", "translation": "лошадь", "translationEnglish": "horse", "sentenceForeign": "Асп дар шола медавад.", "sentenceRussian": "Лошадь бегает в поле." },
+            { "word": "кабак", "translation": "жаба", "translationEnglish": "frog", "sentenceForeign": "Кабак дар об медарояд.", "sentenceRussian": "Жаба прыгает в воду." },
+            { "word": "буфало", "translation": "буйвол", "translationEnglish": "buffalo", "sentenceForeign": "Буфало дар Африка зиндаги мекунад.", "sentenceRussian": "Буйвол живет в Африке." }
         ],
         "nature": [
-            {
-                "word": "об",
-                "translation": "вода",
-                "translationEnglish": "water",
-                "sentenceForeign": "Об барои зиндагӣ муҳим аст.",
-                "sentenceRussian": "Вода важна для жизни."
-            },
-            {
-                "word": "гул",
-                "translation": "цветок",
-                "translationEnglish": "flower",
-                "sentenceForeign": "Ин гул зебо аст.",
-                "sentenceRussian": "Этот цветок красивый."
-            },
-            {
-                "word": "барг",
-                "translation": "лист",
-                "translationEnglish": "leaf",
-                "sentenceForeign": "Барги дарахт сабз аст.",
-                "sentenceRussian": "Лист дерева зеленый."
-            },
-            {
-                "word": "хок",
-                "translation": "земля",
-                "translationEnglish": "soil",
-                "sentenceForeign": "Ин хок ҳосилхез аст.",
-                "sentenceRussian": "Эта земля плодородна."
-            },
-            {
-                "word": "осмон",
-                "translation": "небо",
-                "translationEnglish": "sky",
-                "sentenceForeign": "Осмон кабуд аст.",
-                "sentenceRussian": "Небо голубое."
-            },
-            {
-                "word": "ситора",
-                "translation": "звезда",
-                "translationEnglish": "star",
-                "sentenceForeign": "Ситораҳо дар осмон медурахшанд.",
-                "sentenceRussian": "Звезды светят на небе."
-            },
-            {
-                "word": "моҳ",
-                "translation": "луна",
-                "translationEnglish": "moon",
-                "sentenceForeign": "Моҳ дар осмон медурахшад.",
-                "sentenceRussian": "Луна светит на небе."
-            },
-            {
-                "word": "шамол",
-                "translation": "ветер",
-                "translationEnglish": "wind",
-                "sentenceForeign": "Шамол сахт мебарояд.",
-                "sentenceRussian": "Ветер дует сильно."
-            },
-            {
-                "word": "борон",
-                "translation": "дождь",
-                "translationEnglish": "rain",
-                "sentenceForeign": "Борон меборад.",
-                "sentenceRussian": "Идет дождь."
-            },
-            {
-                "word": "барф",
-                "translation": "снег",
-                "translationEnglish": "snow",
-                "sentenceForeign": "Барф мерезад.",
-                "sentenceRussian": "Идет снег."
-            },
-            {
-                "word": "чароғ",
-                "translation": "свет",
-                "translationEnglish": "light",
-                "sentenceForeign": "Чароғ равшан аст.",
-                "sentenceRussian": "Свет яркий."
-            },
-            {
-                "word": "соя",
-                "translation": "тень",
-                "translationEnglish": "shade",
-                "sentenceForeign": "Сояи дарахт бузург аст.",
-                "sentenceRussian": "Тень дерева большая."
-            },
-            {
-                "word": "кӯҳ",
-                "translation": "гора",
-                "translationEnglish": "mountain",
-                "sentenceForeign": "Кӯҳҳои баланд ҳастанд.",
-                "sentenceRussian": "Горы высокие."
-            },
-            {
-                "word": "дарё",
-                "translation": "река",
-                "translationEnglish": "river",
-                "sentenceForeign": "Дарё оби равон дорад.",
-                "sentenceRussian": "Река имеет проточную воду."
-            },
-            {
-                "word": "баҳор",
-                "translation": "весна",
-                "translationEnglish": "spring",
-                "sentenceForeign": "Баҳор омад.",
-                "sentenceRussian": "Пришла весна."
-            }
+            { "word": "об", "translation": "вода", "translationEnglish": "water", "sentenceForeign": "Об барои зиндагӣ муҳим аст.", "sentenceRussian": "Вода важна для жизни." },
+            { "word": "гул", "translation": "цветок", "translationEnglish": "flower", "sentenceForeign": "Ин гул зебо аст.", "sentenceRussian": "Этот цветок красивый." },
+            { "word": "барг", "translation": "лист", "translationEnglish": "leaf", "sentenceForeign": "Барги дарахт сабз аст.", "sentenceRussian": "Лист дерева зеленый." },
+            { "word": "хок", "translation": "земля", "translationEnglish": "soil", "sentenceForeign": "Ин хок ҳосилхез аст.", "sentenceRussian": "Эта земля плодородна." },
+            { "word": "осмон", "translation": "небо", "translationEnglish": "sky", "sentenceForeign": "Осмон кабуд аст.", "sentenceRussian": "Небо голубое." },
+            { "word": "ситора", "translation": "звезда", "translationEnglish": "star", "sentenceForeign": "Ситораҳо дар осмон медурахшанд.", "sentenceRussian": "Звезды светят на небе." },
+            { "word": "моҳ", "translation": "луна", "translationEnglish": "moon", "sentenceForeign": "Моҳ дар осмон медурахшад.", "sentenceRussian": "Луна светит на небе." },
+            { "word": "шамол", "translation": "ветер", "translationEnglish": "wind", "sentenceForeign": "Шамол сахт мебарояд.", "sentenceRussian": "Ветер дует сильно." },
+            { "word": "борон", "translation": "дождь", "translationEnglish": "rain", "sentenceForeign": "Борон меборад.", "sentenceRussian": "Идет дождь." },
+            { "word": "барф", "translation": "снег", "translationEnglish": "snow", "sentenceForeign": "Барф мерезад.", "sentenceRussian": "Идет снег." },
+            { "word": "чароғ", "translation": "свет", "translationEnglish": "light", "sentenceForeign": "Чароғ равшан аст.", "sentenceRussian": "Свет яркий." },
+            { "word": "соя", "translation": "тень", "translationEnglish": "shade", "sentenceForeign": "Сояи дарахт бузург аст.", "sentenceRussian": "Тень дерева большая." },
+            { "word": "кӯҳ", "translation": "гора", "translationEnglish": "mountain", "sentenceForeign": "Кӯҳҳои баланд ҳастанд.", "sentenceRussian": "Горы высокие." },
+            { "word": "дарё", "translation": "река", "translationEnglish": "river", "sentenceForeign": "Дарё оби равон дорад.", "sentenceRussian": "Река имеет проточную воду." },
+            { "word": "баҳор", "translation": "весна", "translationEnglish": "spring", "sentenceForeign": "Баҳор омад.", "sentenceRussian": "Пришла весна." }
         ],
         "technology": [
-            {
-                "word": "компютер",
-                "translation": "компьютер",
-                "translationEnglish": "computer",
-                "sentenceForeign": "Ин компютер нави ман аст.",
-                "sentenceRussian": "Это мой новый компьютер."
-            },
-            {
-                "word": "телефон",
-                "translation": "телефон",
-                "translationEnglish": "phone",
-                "sentenceForeign": "Ман телефон дорам.",
-                "sentenceRussian": "У меня есть телефон."
-            },
-            {
-                "word": "мошин",
-                "translation": "машина",
-                "translationEnglish": "car",
-                "sentenceForeign": "Мошини ман сурхи ранг аст.",
-                "sentenceRussian": "Моя машина красного цвета."
-            },
-            {
-                "word": "принтер",
-                "translation": "принтер",
-                "translationEnglish": "printer",
-                "sentenceForeign": "Ман принтери нав харидам.",
-                "sentenceRussian": "Я купил новый принтер."
-            },
-            {
-                "word": "плеер",
-                "translation": "плеер",
-                "translationEnglish": "mp3-player",
-                "sentenceForeign": "Ман плеерро гӯш мекунам.",
-                "sentenceRussian": "Я слушаю плеер."
-            },
-            {
-                "word": "телевизор",
-                "translation": "телевизор",
-                "translationEnglish": "TV",
-                "sentenceForeign": "Телевизор дар меҳмонхона аст.",
-                "sentenceRussian": "Телевизор в гостиной."
-            },
-            {
-                "word": "камера",
-                "translation": "камера",
-                "translationEnglish": "camera",
-                "sentenceForeign": "Камераи ман видео мегирад.",
-                "sentenceRussian": "Моя камера снимает видео."
-            },
-            {
-                "word": "лампа",
-                "translation": "лампа",
-                "translationEnglish": "lamp",
-                "sentenceForeign": "Лампа дар рӯи миз аст.",
-                "sentenceRussian": "Лампа стоит на столе."
-            },
-            {
-                "word": "акумулятор",
-                "translation": "аккумулятор",
-                "translationEnglish": "battery",
-                "sentenceForeign": "Аккумулятор пур аст.",
-                "sentenceRussian": "Аккумулятор заряжен."
-            },
-            {
-                "word": "радио",
-                "translation": "радио",
-                "translationEnglish": "radio",
-                "sentenceForeign": "Ман радио гӯш мекунам.",
-                "sentenceRussian": "Я слушаю радио."
-            },
-            {
-                "word": "модем",
-                "translation": "модем",
-                "translationEnglish": "wifi-router",
-                "sentenceForeign": "Модем ба интернет пайваст аст.",
-                "sentenceRussian": "Модем подключен к интернету."
-            },
-            {
-                "word": "монитор",
-                "translation": "монитор",
-                "translationEnglish": "monitor",
-                "sentenceForeign": "Монитор калону равшан аст.",
-                "sentenceRussian": "Монитор большой и яркий."
-            },
-            {
-                "word": "ноутбук",
-                "translation": "ноутбук",
-                "translationEnglish": "laptop",
-                "sentenceForeign": "Ман ноутбуки нав харидам.",
-                "sentenceRussian": "Я купил новый ноутбук."
-            },
-            {
-                "word": "проектор",
-                "translation": "проектор",
-                "translationEnglish": "projector",
-                "sentenceForeign": "Проекторро дар синфхона истифода мебарем.",
-                "sentenceRussian": "Проектор используется в классе."
-            },
-            {
-                "word": "микрофон",
-                "translation": "микрофон",
-                "translationEnglish": "microphone",
-                "sentenceForeign": "Микрофон баландии овозро афзун мекунад.",
-                "sentenceRussian": "Микрофон увеличивает громкость голоса."
-            }
+            { "word": "компютер", "translation": "компьютер", "translationEnglish": "computer", "sentenceForeign": "Ин компютер нави ман аст.", "sentenceRussian": "Это мой новый компьютер." },
+            { "word": "телефон", "translation": "телефон", "translationEnglish": "phone", "sentenceForeign": "Ман телефон дорам.", "sentenceRussian": "У меня есть телефон." },
+            { "word": "мошин", "translation": "машина", "translationEnglish": "car", "sentenceForeign": "Мошини ман сурхи ранг аст.", "sentenceRussian": "Моя машина красного цвета." },
+            { "word": "принтер", "translation": "принтер", "translationEnglish": "printer", "sentenceForeign": "Ман принтери нав харидам.", "sentenceRussian": "Я купил новый принтер." },
+            { "word": "плеер", "translation": "плеер", "translationEnglish": "mp3-player", "sentenceForeign": "Ман плеерро гӯш мекунам.", "sentenceRussian": "Я слушаю плеер." },
+            { "word": "телевизор", "translation": "телевизор", "translationEnglish": "TV", "sentenceForeign": "Телевизор дар меҳмонхона аст.", "sentenceRussian": "Телевизор в гостиной." },
+            { "word": "камера", "translation": "камера", "translationEnglish": "camera", "sentenceForeign": "Камераи ман видео мегирад.", "sentenceRussian": "Моя камера снимает видео." },
+            { "word": "лампа", "translation": "лампа", "translationEnglish": "lamp", "sentenceForeign": "Лампа дар рӯи миз аст.", "sentenceRussian": "Лампа стоит на столе." },
+            { "word": "акумулятор", "translation": "аккумулятор", "translationEnglish": "battery", "sentenceForeign": "Аккумулятор дар мобил истифода мешавад.", "sentenceRussian": "Аккумулятор используется в телефоне." },
+            { "word": "наушник", "translation": "наушники", "translationEnglish": "headphones", "sentenceForeign": "Ман наушникро истифода мебарам.", "sentenceRussian": "Я использую наушники." },
+            { "word": "радио", "translation": "радио", "translationEnglish": "radio", "sentenceForeign": "Радио мусиқӣ навохт.", "sentenceRussian": "Радио играет музыку." },
+            { "word": "факс", "translation": "факс", "translationEnglish": "fax", "sentenceForeign": "Ман факс мефиристам.", "sentenceRussian": "Я отправляю факс." },
+            { "word": "микрофон", "translation": "микрофон", "translationEnglish": "microphone", "sentenceForeign": "Ман микрофонро истифода мебарам.", "sentenceRussian": "Я использую микрофон." },
+            { "word": "клавиатура", "translation": "клавиатура", "translationEnglish": "keyboard", "sentenceForeign": "Ман клавиатураро менависам.", "sentenceRussian": "Я печатаю на клавиатуре." },
+            { "word": "экран", "translation": "экран", "translationEnglish": "screen", "sentenceForeign": "Экран равшан аст.", "sentenceRussian": "Экран яркий." }
+        ],
+        "food": [
+            { "word": "нони", "translation": "хлеб", "translationEnglish": "bread", "sentenceForeign": "Ман нони тафсон мехӯрам.", "sentenceRussian": "Я ем свежий хлеб." },
+            { "word": "гӯшт", "translation": "мясо", "translationEnglish": "meat", "sentenceForeign": "Гӯшт дар табақ аст.", "sentenceRussian": "Мясо на тарелке." },
+            { "word": "шўрбо", "translation": "суп", "translationEnglish": "soup", "sentenceForeign": "Ман шўрбо мехӯрам.", "sentenceRussian": "Я ем суп." },
+            { "word": "картошка", "translation": "картофель", "translationEnglish": "potato", "sentenceForeign": "Ман картошка пухта мехӯрам.", "sentenceRussian": "Я ем жареный картофель." },
+            { "word": "мева", "translation": "фрукты", "translationEnglish": "fruit", "sentenceForeign": "Ман мева мехӯрам.", "sentenceRussian": "Я ем фрукты." },
+            { "word": "сабзӣ", "translation": "овощи", "translationEnglish": "vegetables", "sentenceForeign": "Ман сабзӣ мехӯрам.", "sentenceRussian": "Я ем овощи." },
+            { "word": "шир", "translation": "молоко", "translationEnglish": "milk", "sentenceForeign": "Ман шир менӯшам.", "sentenceRussian": "Я пью молоко." },
+            { "word": "қаймоқ", "translation": "сметана", "translationEnglish": "sour cream", "sentenceForeign": "Ман қаймоқ бо қаҳва менӯшам.", "sentenceRussian": "Я пью кофе со сметаной." },
+            { "word": "нон", "translation": "булочка", "translationEnglish": "bun", "sentenceForeign": "Ман нон мехӯрам.", "sentenceRussian": "Я ем булочку." },
+            { "word": "сабзӣ", "translation": "морковь", "translationEnglish": "carrot", "sentenceForeign": "Ман сабзӣ мехӯрам.", "sentenceRussian": "Я ем морковь." },
+            { "word": "яблоко", "translation": "яблоко", "translationEnglish": "apple", "sentenceForeign": "Ман себ мехӯрам.", "sentenceRussian": "Я ем яблоко." },
+            { "word": "апельсин", "translation": "апельсин", "translationEnglish": "orange", "sentenceForeign": "Ман апельсин мехӯрам.", "sentenceRussian": "Я ем апельсин." },
+            { "word": "лимон", "translation": "лимон", "translationEnglish": "lemon", "sentenceForeign": "Ман лимон мехӯрам.", "sentenceRussian": "Я ем лимон." },
+            { "word": "салат", "translation": "салат", "translationEnglish": "salad", "sentenceForeign": "Ман салат мехӯрам.", "sentenceRussian": "Я ем салат." },
+            { "word": "бутерброд", "translation": "бутерброд", "translationEnglish": "sandwich", "sentenceForeign": "Ман бутерброд мехӯрам.", "sentenceRussian": "Я ем бутерброд." }
+        ],
+        "jobs": [
+            { "word": "муаллим", "translation": "учитель", "translationEnglish": "teacher", "sentenceForeign": "Муаллими ман дарс медиҳад.", "sentenceRussian": "Мой учитель преподает." },
+            { "word": "духтур", "translation": "врач", "translationEnglish": "doctor", "sentenceForeign": "Духтур маро муоина мекунад.", "sentenceRussian": "Врач меня осматривает." },
+            { "word": "меъмор", "translation": "архитектор", "translationEnglish": "architect", "sentenceForeign": "Меъмор биноҳоро тарҳрезӣ мекунад.", "sentenceRussian": "Архитектор проектирует здания." },
+            { "word": "бармен", "translation": "бармен", "translationEnglish": "bartender", "sentenceForeign": "Бармен нӯшокиҳо омода мекунад.", "sentenceRussian": "Бармен готовит напитки." },
+            { "word": "полиция", "translation": "полицейский", "translationEnglish": "police", "sentenceForeign": "Полиция тартиботро нигоҳ медорад.", "sentenceRussian": "Полицейский поддерживает порядок." },
+            { "word": "муҳандис", "translation": "инженер", "translationEnglish": "engineer", "sentenceForeign": "Муҳандис маслиҳат медиҳад.", "sentenceRussian": "Инженер консультирует." },
+            { "word": "дӯзанда", "translation": "портной", "translationEnglish": "tailor", "sentenceForeign": "Дӯзанда либосҳоро медӯзад.", "sentenceRussian": "Портной шьет одежду." },
+            { "word": "ошпаз", "translation": "повар", "translationEnglish": "cook", "sentenceForeign": "Ошпаз таом мепазад.", "sentenceRussian": "Повар готовит еду." },
+            { "word": "бозоргир", "translation": "продавец", "translationEnglish": "seller", "sentenceForeign": "Бозоргир молҳоро мефурӯшад.", "sentenceRussian": "Продавец продает товары." },
+            { "word": "шофер", "translation": "водитель", "translationEnglish": "driver", "sentenceForeign": "Шофер мошин меронад.", "sentenceRussian": "Водитель ведет машину." },
+            { "word": "ҳуқуқшинос", "translation": "юрист", "translationEnglish": "lawyer", "sentenceForeign": "Ҳуқуқшинос маслиҳат медиҳад.", "sentenceRussian": "Юрист консультирует." },
+            { "word": "қарздор", "translation": "банкир", "translationEnglish": "banker", "sentenceForeign": "Қарздор бо пул кор мекунад.", "sentenceRussian": "Банкир работает с деньгами." },
+            { "word": "нозир", "translation": "контролер", "translationEnglish": "inspector", "sentenceForeign": "Нозир корҳоро назорат мекунад.", "sentenceRussian": "Контролер следит за работами." },
+            { "word": "дилер", "translation": "торговец", "translationEnglish": "dealer", "sentenceForeign": "Дилер молҳоро мефурӯшад.", "sentenceRussian": "Торговец продает товары." },
+            { "word": "мудир", "translation": "менеджер", "translationEnglish": "manager", "sentenceForeign": "Мудир корҳоро идора мекунад.", "sentenceRussian": "Менеджер управляет делами." },
+            { "word": "муҳосиб", "translation": "бухгалтер", "translationEnglish": "accountant", "sentenceForeign": "Муҳосиб ҳисобҳоро мекашад.", "sentenceRussian": "Бухгалтер ведет счета." },
+            { "word": "сӯзандӯз", "translation": "швея", "translationEnglish": "seamstress", "sentenceForeign": "Сӯзандӯз либос медӯзад.", "sentenceRussian": "Швея шьет одежду." }
+        ],
+        "home_items": [
+            { "word": "мебел", "translation": "мебель", "translationEnglish": "furniture", "sentenceForeign": "Мебел дар хона зебо аст.", "sentenceRussian": "Мебель в доме красивая." },
+            { "word": "қолин", "translation": "ковер", "translationEnglish": "carpet", "sentenceForeign": "Қолин дар фарш аст.", "sentenceRussian": "Ковер на полу." },
+            { "word": "лампа", "translation": "лампа", "translationEnglish": "lamp", "sentenceForeign": "Лампа дар рӯи миз аст.", "sentenceRussian": "Лампа на столе." },
+            { "word": "кат", "translation": "кровать", "translationEnglish": "bed", "sentenceForeign": "Кат барои хоб аст.", "sentenceRussian": "Кровать для сна." },
+            { "word": "қулф", "translation": "замок", "translationEnglish": "lock", "sentenceForeign": "Қулф дарро мебандад.", "sentenceRussian": "Замок закрывает дверь." },
+            { "word": "айнӣ", "translation": "зеркало", "translationEnglish": "mirror", "sentenceForeign": "Айнӣ дар девор аст.", "sentenceRussian": "Зеркало на стене." },
+            { "word": "пиёла", "translation": "чашка", "translationEnglish": "cup", "sentenceForeign": "Пиёла барои чой аст.", "sentenceRussian": "Чашка для чая." },
+            { "word": "ҷевон", "translation": "шкаф", "translationEnglish": "closet", "sentenceForeign": "Ҷевон барои либос аст.", "sentenceRussian": "Шкаф для одежды." },
+            { "word": "тарозу", "translation": "весы", "translationEnglish": "scales", "sentenceForeign": "Тарозу вазнро чен мекунад.", "sentenceRussian": "Весы измеряют вес." },
+            { "word": "парда", "translation": "занавеска", "translationEnglish": "curtain", "sentenceForeign": "Парда дар тиреза аст.", "sentenceRussian": "Занавеска на окне." },
+            { "word": "телевизор", "translation": "телевизор", "translationEnglish": "television", "sentenceForeign": "Телевизор дар меҳмонхона аст.", "sentenceRussian": "Телевизор в гостиной." },
+            { "word": "рахти хоб", "translation": "постель", "translationEnglish": "bedding", "sentenceForeign": "Рахти хоб дар кат аст.", "sentenceRussian": "Постель на кровати." },
+            { "word": "ҳуҷра", "translation": "комната", "translationEnglish": "room", "sentenceForeign": "Ҳуҷра барои меҳмонон аст.", "sentenceRussian": "Комната для гостей." },
+            { "word": "қанд", "translation": "сахарница", "translationEnglish": "sugar bowl", "sentenceForeign": "Қанд дар рӯи миз аст.", "sentenceRussian": "Сахарница на столе." },
+            { "word": "часпак", "translation": "скотч", "translationEnglish": "tape", "sentenceForeign": "Часпак барои бастабандӣ аст.", "sentenceRussian": "Скотч для упаковки." }
+        ],
+        "sports": [
+            { "word": "футбол", "translation": "футбол", "translationEnglish": "football", "sentenceForeign": "Ман футбол бозӣ мекунам.", "sentenceRussian": "Я играю в футбол." },
+            { "word": "бокс", "translation": "бокс", "translationEnglish": "boxing", "sentenceForeign": "Ман бокс тамрин мекунам.", "sentenceRussian": "Я тренируюсь в боксе." },
+            { "word": "шиноварӣ", "translation": "плавание", "translationEnglish": "swimming", "sentenceForeign": "Ман шиноварӣ мекунам.", "sentenceRussian": "Я плаваю." },
+            { "word": "баскетбол", "translation": "баскетбол", "translationEnglish": "basketball", "sentenceForeign": "Ман баскетбол бозӣ мекунам.", "sentenceRussian": "Я играю в баскетбол." },
+            { "word": "волейбол", "translation": "волейбол", "translationEnglish": "volleyball", "sentenceForeign": "Ман волейбол бозӣ мекунам.", "sentenceRussian": "Я играю в волейбол." },
+            { "word": "тэннис", "translation": "теннис", "translationEnglish": "tennis", "sentenceForeign": "Ман тэннис бозӣ мекунам.", "sentenceRussian": "Я играю в теннис." },
+            { "word": "гимнастика", "translation": "гимнастика", "translationEnglish": "gymnastics", "sentenceForeign": "Ман гимнастика мекунам.", "sentenceRussian": "Я занимаюсь гимнастикой." },
+            { "word": "ҷавидан", "translation": "бег", "translationEnglish": "running", "sentenceForeign": "Ман дар боғ давида мекунам.", "sentenceRussian": "Я бегаю в парке." },
+            { "word": "фарохонӣ", "translation": "гимнастика", "translationEnglish": "gymnastics", "sentenceForeign": "Ман ҳар рӯз гимнастика мекунам.", "sentenceRussian": "Я занимаюсь гимнастикой каждый день." },
+            { "word": "самбо", "translation": "самбо", "translationEnglish": "sambo", "sentenceForeign": "Ман самбо машқ мекунам.", "sentenceRussian": "Я занимаюсь самбо." },
+            { "word": "карате", "translation": "карате", "translationEnglish": "karate", "sentenceForeign": "Ман карате медонам.", "sentenceRussian": "Я занимаюсь карате." },
+            { "word": "аҳд", "translation": "марафон", "translationEnglish": "marathon", "sentenceForeign": "Ман дар марафон иштирок мекунам.", "sentenceRussian": "Я участвую в марафоне." },
+            { "word": "сайр", "translation": "прогулка", "translationEnglish": "walk", "sentenceForeign": "Ман ҳар рӯз сайр мекунам.", "sentenceRussian": "Я гуляю каждый день." },
+            { "word": "шорт-трек", "translation": "шорт-трек", "translationEnglish": "short track", "sentenceForeign": "Ман дар шорт-трек иштирок мекунам.", "sentenceRussian": "Я участвую в шорт-треке." },
+            { "word": "велосипед", "translation": "велосипед", "translationEnglish": "bicycle", "sentenceForeign": "Ман велосипед савор мешавам.", "sentenceRussian": "Я катаюсь на велосипеде." },
+            { "word": "сноуборд", "translation": "сноуборд", "translationEnglish": "snowboard", "sentenceForeign": "Ман сноуборд савор мешавам.", "sentenceRussian": "Я катаюсь на сноуборде." },
+            { "word": "боуллинг", "translation": "боуллинг", "translationEnglish": "bowling", "sentenceForeign": "Ман дар боуллинг иштирок мекунам.", "sentenceRussian": "Я играю в боулинг." },
+            { "word": "ҳафтхандӣ", "translation": "рукопашный бой", "translationEnglish": "hand-to-hand combat", "sentenceForeign": "Ман рукопашный бой машқ мекунам.", "sentenceRussian": "Я занимаюсь рукопашным боем." },
+            { "word": "араво", "translation": "гребля", "translationEnglish": "rowing", "sentenceForeign": "Ман гребля машқ мекунам.", "sentenceRussian": "Я занимаюсь греблей." },
+            { "word": "таеквондо", "translation": "таеквондо", "translationEnglish": "taekwondo", "sentenceForeign": "Ман таеквондо медонам.", "sentenceRussian": "Я занимаюсь таеквондо." },
+            { "word": "триатлон", "translation": "триатлон", "translationEnglish": "triathlon", "sentenceForeign": "Ман дар триатлон иштирок мекунам.", "sentenceRussian": "Я участвую в триатлоне." },
+            { "word": "сафари сайёҳӣ", "translation": "поход", "translationEnglish": "hiking", "sentenceForeign": "Ман дар сафар машқ мекунам.", "sentenceRussian": "Я занимаюсь походами." },
+            { "word": "сайёҳӣ", "translation": "альпинизм", "translationEnglish": "mountaineering", "sentenceForeign": "Ман дар кӯҳ машқ мекунам.", "sentenceRussian": "Я занимаюсь альпинизмом." }
+        ],
+        "transport": [
+            { "word": "автобус", "translation": "автобус", "translationEnglish": "bus", "sentenceForeign": "Ман бо автобус сафар мекунам.", "sentenceRussian": "Я езжу на автобусе." },
+            { "word": "поезд", "translation": "поезд", "translationEnglish": "train", "sentenceForeign": "Ман бо поезд сафар мекунам.", "sentenceRussian": "Я езжу на поезде." },
+            { "word": "самолет", "translation": "самолет", "translationEnglish": "plane", "sentenceForeign": "Ман бо самолет парвоз мекунам.", "sentenceRussian": "Я лечу на самолете." },
+            { "word": "корабль", "translation": "корабль", "translationEnglish": "ship", "sentenceForeign": "Ман бо корабль сафар мекунам.", "sentenceRussian": "Я плаваю на корабле." },
+            { "word": "такси", "translation": "такси", "translationEnglish": "taxi", "sentenceForeign": "Ман бо такси сафар мекунам.", "sentenceRussian": "Я езжу на такси." },
+            { "word": "мотоцикл", "translation": "мотоцикл", "translationEnglish": "motorcycle", "sentenceForeign": "Ман бо мотоцикл сафар мекунам.", "sentenceRussian": "Я езжу на мотоцикле." },
+            { "word": "велосипед", "translation": "велосипед", "translationEnglish": "bicycle", "sentenceForeign": "Ман бо велосипед сафар мекунам.", "sentenceRussian": "Я езжу на велосипеде." },
+            { "word": "грузовик", "translation": "грузовик", "translationEnglish": "truck", "sentenceForeign": "Ман бо грузовик сафар мекунам.", "sentenceRussian": "Я езжу на грузовике." },
+            { "word": "электричка", "translation": "электричка", "translationEnglish": "electric train", "sentenceForeign": "Ман бо электричка сафар мекунам.", "sentenceRussian": "Я езжу на электричке." },
+            { "word": "трамвай", "translation": "трамвай", "translationEnglish": "tram", "sentenceForeign": "Ман бо трамвай сафар мекунам.", "sentenceRussian": "Я езжу на трамвае." },
+            { "word": "метро", "translation": "метро", "translationEnglish": "metro", "sentenceForeign": "Ман бо метро сафар мекунам.", "sentenceRussian": "Я езжу на метро." },
+            { "word": "скутер", "translation": "скутер", "translationEnglish": "scooter", "sentenceForeign": "Ман бо скутер сафар мекунам.", "sentenceRussian": "Я езжу на скутере." },
+            { "word": "катер", "translation": "катер", "translationEnglish": "boat", "sentenceForeign": "Ман бо катер сафар мекунам.", "sentenceRussian": "Я езжу на катере." },
+            { "word": "вагон", "translation": "вагон", "translationEnglish": "wagon", "sentenceForeign": "Ман бо вагон сафар мекунам.", "sentenceRussian": "Я езжу на вагоне." },
+            { "word": "ракета", "translation": "ракета", "translationEnglish": "rocket", "sentenceForeign": "Ман бо ракета сафар мекунам.", "sentenceRussian": "Я лечу на ракете." }
         ]
     },
     "uzbek": {

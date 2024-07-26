@@ -21,11 +21,16 @@
         <div class="category-select">
             <label for="category">Выберите категорию:</label>
             <select id="category">
-                
+                <option value="all">Все категории</option>
                 <option value="emotions">Эмоции</option>
-                <option value="objects">Вещи</option>
+                <option value="animals">Животные</option>
                 <option value="nature">Природа</option>
                 <option value="technology">Техника</option>
+                <option value="food">Еда</option>
+                <option value="professions">Профессии</option>
+                <option value="household">Домашние предметы</option>
+                <option value="sports">Спорт</option>
+                <option value="transport">Транспорт</option>
             </select>
         </div>
         <div class="language-select">
@@ -49,9 +54,14 @@
             <select id="learning-category" onchange="filterLearningWords()">
                 <option value="all">Все категории</option>
                 <option value="emotions">Эмоции</option>
-                <option value="objects">Вещи</option>
+                <option value="animals">Животные</option>
                 <option value="nature">Природа</option>
                 <option value="technology">Техника</option>
+                <option value="food">Еда</option>
+                <option value="professions">Профессии</option>
+                <option value="household">Домашние предметы</option>
+                <option value="sports">Спорт</option>
+                <option value="transport">Транспорт</option>
             </select>
             <input type="text" id="search-input" placeholder="Поиск по словам..." oninput="filterLearningWords()">
             <div class="learning-container">
