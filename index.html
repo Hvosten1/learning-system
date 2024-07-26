@@ -9,17 +9,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    
     <div class="container">
-        <div class="language-switch">
-            <label for="interface-language">Язык интерфейса:</label>
-            <select id="interface-language" onchange="switchInterfaceLanguage()">
-                <option value="ru">Русский</option>
-                <option value="tajik">Таджикский</option>
-                <option value="uzbek">Узбекский</option>
-                <option value="kyrgyz">Киргизский</option>
-                <option value="kazakh">Казахский</option>
-            </select>
+        <div class="header">
+            <div class="language-switch">
+                <label for="interface-language">Язык интерфейса:</label>
+                <select id="interface-language" onchange="switchInterfaceLanguage()">
+                    <option value="ru">Русский</option>
+                    <option value="tajik">Таджикский</option>
+                    <option value="uzbek">Узбекский</option>
+                    <option value="kyrgyz">Киргизский</option>
+                    <option value="kazakh">Казахский</option>
+                </select>
+            </div>
+            
         </div>
         <h1 data-i18n="title">Практика языка</h1>
         <div class="mode-select">
@@ -60,8 +62,8 @@
             </div>
         </div>
         <div class="learning-pack" style="display: none;">
-            
             <h2 id="learning-title"></h2>
+            
             <label for="learning-category" data-i18n="category">Категория:</label>
             <select id="learning-category" onchange="filterLearningWords()">
                 <option value="all" data-i18n="all-categories">Все категории</option>
@@ -77,6 +79,7 @@
                 <option value="school" data-i18n="school">Школа</option>
             </select>
             <input type="text" id="search-input" placeholder="Поиск по словам..." oninput="filterLearningWords()">
+        
             <div class="learning-container">
                 <div id="learning-words" class="scrollable-list"></div>
             </div>
