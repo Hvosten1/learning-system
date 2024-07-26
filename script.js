@@ -118,7 +118,7 @@ function nextTrainingWord() {
 
 function showLearningWords(language, category) {
     const learningContainer = document.getElementById('learning-words');
-    document.getElementById('learning-title').innerText = `${languageNames[language]} словарь (${categoryNames[category]})`;
+    document.getElementById('learning-title').innerText = `${languageNames[language]} словарь `;
 
     learningContainer.innerHTML = '';
     currentWords.forEach(wordPair => {
