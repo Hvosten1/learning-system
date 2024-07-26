@@ -167,6 +167,10 @@ input[type="text"]:focus {
     border-radius: 8px;
 }
 
+#search-input-label{
+    margin-top: 10px;
+}
+
 .training-buttons {
     display: flex;
 }

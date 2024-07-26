@@ -76,7 +76,8 @@
                 <option value="transport" data-i18n="transport">Транспорт</option>
                 <option value="school" data-i18n="school">Школа</option>
             </select>
-            <input type="text" id="search-input" placeholder="Поиск по словам..." oninput="filterLearningWords()">
+            <label for="search-input" data-i18n="search" id="search-input-label">Поиск:</label>
+            <input type="text" id="search-input"  oninput="filterLearningWords()">
             <div class="learning-container">
                 <div id="learning-words" class="scrollable-list"></div>
             </div>

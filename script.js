@@ -29,6 +29,7 @@ const categoryNames = {
 
 const translations = {
     "ru": {
+        "search": "Поиск",
         "title": "Практика языка",
         "select-mode": "Выберите режим:",
         "to-russian": "Перевод на русский",
@@ -63,6 +64,7 @@ const translations = {
         "lang-kazakh": "Казахский"
     },
     "tajik": {
+        "search": "Ҷустуҷӯ",
         "title": "Амали забон",
         "select-mode": "Режимро интихоб кунед:",
         "to-russian": "Ба русӣ тарҷума кунед",
@@ -97,6 +99,7 @@ const translations = {
         "lang-kazakh": "Қазоқӣ"
     },
     "uzbek": {
+        "search": "Qidiruv",
         "title": "Til amaliyoti",
         "select-mode": "Rejimni tanlang:",
         "to-russian": "Rus tiliga tarjima qilish",
@@ -131,6 +134,7 @@ const translations = {
         "lang-kazakh": "Qazaq tili"
     },
     "kyrgyz": {
+        "search": "Издөө",
         "title": "Тил практикасы",
         "select-mode": "Режимди тандаңыз:",
         "to-russian": "Орусчага которуу",
@@ -165,6 +169,7 @@ const translations = {
         "lang-kazakh": "Казакча"
     },
     "kazakh": {
+        "search": "Іздеу",
         "title": "Тіл практикасы",
         "select-mode": "Режимді таңдаңыз:",
         "to-russian": "Орыс тіліне аудару",
