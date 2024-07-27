@@ -22,8 +22,9 @@
                 </select>
             </div>
         </div>
-        <h1 data-i18n="title">Практика языка</h1>
+        
         <div class="mode-select">
+            <h2 id="title-all" data-i18n="title">Практика языка</h2>
             <label for="mode" data-i18n="select-mode">Выберите режим:</label>
             <select id="mode">
                 <option value="to-russian" data-i18n="to-russian">Перевод на русский</option>
@@ -61,7 +62,7 @@
             </div>
         </div>
         <div class="learning-pack" style="display: none;">
-            <h2 id="learning-title"></h2>
+            <h2 id="title-all" data-i18n="dictionary">Словарь</h2>
             <label for="learning-category" data-i18n="category">Категория:</label>
             <select id="learning-category" onchange="filterLearningWords()">
                 <option value="all" data-i18n="all-categories">Все категории</option>
