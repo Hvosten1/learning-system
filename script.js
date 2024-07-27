@@ -5,7 +5,6 @@ let score = 0;
 let totalRounds = 10;
 let mode = "to-russian";
 let interfaceLanguage = "ru";
-let learningLanguage = "tajik"; 
 
 const languageNames = {
     "tajik": "Таджикский",
@@ -261,24 +260,23 @@ function startLearning() {
     document.getElementById('learning-category').value = category;
 }
 
-function startLearning() {
+function startTraining() {
     const language = document.getElementById('language').value;
     const category = document.getElementById('category').value;
     currentWords = category === "all" 
-        ? Object.values(words).flat().map(word => ({ ...word, word: word.translations[learningLanguage], translation: word.translations['russian'], sentenceForeign: word.sentences[learningLanguage], sentenceRussian: word.sentences['russian'] }))
-        : words[category].map(word => ({ ...word, word: word.translations[learningLanguage], translation: word.translations['russian'], sentenceForeign: word.sentences[learningLanguage], sentenceRussian: word.sentences['russian'] }));
-    showLearningWords(language, category);
+        ? Object.values(words).flat().map(word => ({ ...word, word: word.translations[language], translation: word.translations['russian'], sentenceForeign: word.sentences[language], sentenceRussian: word.sentences['russian'] }))
+        : words[category].map(word => ({ ...word, word: word.translations[language], translation: word.translations['russian'], sentenceForeign: word.sentences[language], sentenceRussian: word.sentences['russian'] }));
+    currentIndex = 0;
 
-    document.querySelector('.learning-pack').style.display = 'block';
+    document.querySelector('.training-container').style.display = 'block';
+    document.querySelector('.learning-pack').style.display = 'none';
     document.querySelector('.game-container').style.display = 'none';
     document.querySelector('.result-screen').style.display = 'none';
     document.querySelector('.mode-select').style.display = 'none';
     document.querySelector('.category-select').style.display = 'none';
     document.querySelector('.language-select').style.display = 'none';
-    document.querySelector('.training-container').style.display = 'none';
-    document.getElementById('learning-category').value = category;
+    showTrainingWord();
 }
-
 
 function showTrainingWord() {
     if (currentIndex < currentWords.length) {
@@ -332,13 +330,14 @@ function showLearningWords(language, category) {
 function filterLearningWords() {
     const searchInput = document.getElementById('search-input').value.toLowerCase();
     const selectedCategory = document.getElementById('learning-category').value;
+    const language = document.getElementById('language').value;
 
     filteredWords = selectedCategory === "all" 
         ? Object.values(words).flat().filter(word => 
-            word.translations[learningLanguage].toLowerCase().includes(searchInput) || 
+            word.translations[language].toLowerCase().includes(searchInput) || 
             word.translations['russian'].toLowerCase().includes(searchInput))
         : words[selectedCategory].filter(word =>
-            word.translations[learningLanguage].toLowerCase().includes(searchInput) || 
+            word.translations[language].toLowerCase().includes(searchInput) || 
             word.translations['russian'].toLowerCase().includes(searchInput));
 
     const learningContainer = document.getElementById('learning-words');
@@ -346,11 +345,10 @@ function filterLearningWords() {
     filteredWords.forEach(wordPair => {
         const wordItem = document.createElement('div');
         wordItem.classList.add('word-item');
-        wordItem.innerHTML = `<strong>${wordPair.translations[learningLanguage]}</strong> - ${wordPair.translations['russian']}`;
+        wordItem.innerHTML = `<strong>${wordPair.translations[language]}</strong> - ${wordPair.translations['russian']}`;
         learningContainer.appendChild(wordItem);
     });
 }
-
 
 function showNextWord() {
     if (currentIndex < totalRounds) {
@@ -427,7 +425,6 @@ function shuffleArray(array) {
     }
     return array;
 }
-
 document.getElementById('mode').addEventListener('change', function() {
     mode = this.value;
 });

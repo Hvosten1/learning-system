@@ -76,15 +76,9 @@
                 <option value="transport" data-i18n="transport">Транспорт</option>
                 <option value="school" data-i18n="school">Школа</option>
             </select>
-            <label for="learning-language" data-i18n="select-language">Выберите язык:</label>
-            <select id="learning-language" onchange="filterLearningWords()">
-                <option value="tajik" data-i18n="lang-tajik">Таджикский</option>
-                <option value="uzbek" data-i18n="lang-uzbek">Узбекский</option>
-                <option value="kyrgyz" data-i18n="lang-kyrgyz">Киргизский</option>
-                <option value="kazakh" data-i18n="lang-kazakh">Казахский</option>
-            </select>
+            
             <label for="search-input" data-i18n="search" id="search-input-label">Поиск:</label>
-            <input type="text" id="search-input" oninput="filterLearningWords()">
+            <input type="text" id="search-input"  oninput="filterLearningWords()">
             <div class="learning-container">
                 <div id="learning-words" class="scrollable-list"></div>
             </div>
@@ -98,6 +92,7 @@
             <div class="translation-input">
                 <label for="translation" data-i18n="enter-translation">Введите перевод:</label>
                 <input type="text" id="translation">
+                
                 <button class="btn" data-i18n="back-to-start" onclick="goToStartScreen()">Вернуться к началу</button>
                 <button class="btn" data-i18n="confirm" onclick="checkTranslation()">Подтвердить</button>
             </div>
@@ -114,6 +109,7 @@
                 <p id="training-sentence-foreign"></p>
                 <p id="training-sentence-russian"></p>
             </div>
+            
             <button class="btn" data-i18n="back-to-start" onclick="goToStartScreen()">Вернуться к началу</button>
             <button class="btn" data-i18n="next-word" onclick="nextTrainingWord()">Следующее слово</button>
         </div>
