@@ -269,8 +269,8 @@ function startTraining() {
     const language = document.getElementById('language').value;
     const category = document.getElementById('category').value;
     currentWords = category === "all" 
-        ? Object.values(words).flat().map(word => ({ ...word, word: word.translations[language], translation: word.translations['russian'], sentenceForeign: word.sentences[language], sentenceRussian: word.sentences['russian'] }))
-        : words[category].map(word => ({ ...word, word: word.translations[language], translation: word.translations['russian'], sentenceForeign: word.sentences[language], sentenceRussian: word.sentences['russian'] }));
+        ? shuffleArray(Object.values(words).flat().map(word => ({ ...word, word: word.translations[language], translation: word.translations['russian'], sentenceForeign: word.sentences[language], sentenceRussian: word.sentences['russian'] })))
+        : shuffleArray(words[category].map(word => ({ ...word, word: word.translations[language], translation: word.translations['russian'], sentenceForeign: word.sentences[language], sentenceRussian: word.sentences['russian'] })));
     currentIndex = 0;
 
     document.querySelector('.training-container').style.display = 'block';
@@ -291,9 +291,9 @@ function showTrainingWord() {
         document.getElementById('training-sentence-foreign').innerHTML = highlightWord(wordData.sentenceForeign, wordData.word);
         document.getElementById('training-sentence-russian').innerHTML = highlightWord(wordData.sentenceRussian, wordData.translation);
         const imageContainer = document.getElementById('image-container-training');
-        if (wordData.translationEnglish) {
-            fetchImage(wordData.translationEnglish.toLowerCase(), imageContainer, 'training-image');
-        }
+        // if (wordData.word) {
+        //     fetchImage(wordData.word.toLowerCase(), imageContainer, 'training-image');
+        // }
     } else {
         showTrainingEndScreen();
     }
@@ -360,7 +360,7 @@ function showNextWord() {
         document.getElementById('word').innerText = mode === 'to-russian' ? currentWords[currentIndex].word : currentWords[currentIndex].translation;
         document.getElementById('translation').value = '';
         document.getElementById('result').innerText = '';
-        document.getElementById('word-counter').innerText = `Слово ${currentIndex + 1} из ${totalRounds}`;
+        document.getElementById('word-counter').innerText = `${currentIndex + 1} из ${totalRounds}`;
         document.getElementById('image-container').innerHTML = '';
     } else {
         endGame();
@@ -414,6 +414,23 @@ function endGame() {
 }
 
 function goToStartScreen() {
+    currentIndex=0;
+
+    const trainingContainer = document.querySelector('.training-container');
+    trainingContainer.innerHTML = `
+        <h2 data-i18n="training-mode">Режим тренировки</h2>
+            <div class="word-display">
+                <div id="image-container-training"></div>
+                <p id="training-word"></p>
+                <p id="training-translation"></p>
+                <p id="training-sentence-foreign"></p>
+                <p id="training-sentence-russian"></p>
+            </div>
+
+        <button class="btn" data-i18n="back-to-start" onclick="goToStartScreen()">Вернуться к началу</button>
+        <button class="btn" data-i18n="next-word" onclick="nextTrainingWord()">Следующее слово</button>
+    `;
+
     document.querySelector('.result-screen').style.display = 'none';
     document.querySelector('.game-container').style.display = 'none';
     document.querySelector('.mode-select').style.display = 'block';

@@ -191,6 +191,10 @@ select:focus, input[type="text"]:focus {
     margin-bottom: 10px;
 }
 
+#training-translation, #training-sentence-russian{
+    color:#404040;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
