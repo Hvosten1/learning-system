@@ -438,7 +438,7 @@ function goToStartScreen() {
     document.querySelector('.language-select').style.display = 'block';
     document.querySelector('.learning-pack').style.display = 'none';
     document.querySelector('.training-container').style.display = 'none';
-    document.getElementById('category').value = document.getElementById('learning-category').value;;
+    document.getElementById('category').value = category;
 }
 
 function shuffleArray(array) {
@@ -448,8 +448,11 @@ function shuffleArray(array) {
     }
     return array;
 }
-document.getElementById('mode').addEventListener('change', function() {
-    mode = this.value;
+document.getElementById('category').addEventListener('change', function() {
+    category = this.value;
+});
+document.getElementById('learning-category').addEventListener('change', function() {
+    category = this.value;
 });
 
 document.getElementById('learning-language').addEventListener('change', function() {
