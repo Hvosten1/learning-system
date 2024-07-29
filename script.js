@@ -438,6 +438,7 @@ function goToStartScreen() {
     document.querySelector('.language-select').style.display = 'block';
     document.querySelector('.learning-pack').style.display = 'none';
     document.querySelector('.training-container').style.display = 'none';
+    document.getElementById('category').value = document.getElementById('learning-category').value;;
 }
 
 function shuffleArray(array) {
