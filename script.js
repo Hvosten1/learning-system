@@ -6,6 +6,7 @@ let totalRounds = 10;
 let mode = "to-russian";
 let interfaceLanguage = "ru";
 let category = "all";
+let message = ""
 
 const languageNames = {
     "tajik": "Таджикский",
@@ -30,6 +31,12 @@ const categoryNames = {
 
 const translations = {
     "ru": {
+        "correct": "Правильно!",
+        "incorrect": "Неправильно. Правильный перевод: ",
+        "excellent-result": "Молодец, у тебя отлично получается!",
+        "good-result": "Хороший результат, в следующий раз будет еще лучше!",
+        "try-again": "Попробуй еще раз!",
+        "final-score": "Ваш результат: ",
         "dictionary": "Словарь",
         "search": "Поиск",
         "title": "Практика языка",
@@ -66,6 +73,12 @@ const translations = {
         "lang-kazakh": "Казахский"
     },
     "tajik": {
+        "correct": "Дуруст!",
+        "incorrect": "Нодуруст. Тарҷумаи дуруст: ",
+        "excellent-result": "Офарин, шумо хеле хуб кор кардед!",
+        "good-result": "Натиҷаи хуб, дар дафъаи оянда беҳтар мешавад!",
+        "try-again": "Такрор кунед!",
+        "final-score": "Натиҷаи шумо: ",
         "dictionary": "Луғат",
         "search": "Ҷустуҷӯ",
         "title": "Амали забон",
@@ -102,6 +115,12 @@ const translations = {
         "lang-kazakh": "Қазоқӣ"
     },
     "uzbek": {
+        "correct": "Тўғри!",
+        "incorrect": "Нотўғри. Тўғри таржима: ",
+        "excellent-result": "Афарин, сиз жуда яхши ишладингиз!",
+        "good-result": "Яхши натижа, кейинги сафар янада яхшироқ бўлади!",
+        "try-again": "Яна уриниб кўринг!",
+        "final-score": "Сизнинг натижангиз: ",
         "dictionary": "Луғат",
         "search": "Qidiruv",
         "title": "Til amaliyoti",
@@ -138,6 +157,12 @@ const translations = {
         "lang-kazakh": "Qazaq tili"
     },
     "kyrgyz": {
+        "correct": "Туура!",
+        "incorrect": "Туура эмес. Туура котормосу: ",
+        "excellent-result": "Азаматсыз, сиз абдан жакшы иштедиңиз!",
+        "good-result": "Жакшы натыйжа, кийинки жолу дагы жакшы болот!",
+        "try-again": "Дагы аракет кылыңыз!",
+        "final-score": "Сиздин жыйынтык: ",
         "dictionary": "Сөздүк",
         "search": "Издөө",
         "title": "Тил практикасы",
@@ -174,6 +199,12 @@ const translations = {
         "lang-kazakh": "Казакча"
     },
     "kazakh": {
+        "correct": "Дұрыс!",
+        "incorrect": "Қате. Дұрыс аударма: ",
+        "excellent-result": "Жарайсың, сен өте жақсы жұмыс жасадың!",
+        "good-result": "Жақсы нәтиже, келесі жолы одан да жақсы болады!",
+        "try-again": "Тағы да тырысыңыз!",
+        "final-score": "Сіздің нәтижеңіз: ",
         "dictionary": "Сөздік",
         "search": "Іздеу",
         "title": "Тіл практикасы",
@@ -213,6 +244,7 @@ const translations = {
 
 function switchInterfaceLanguage() {
     interfaceLanguage = document.getElementById('interface-language').value;
+    document.getElementById('final-score').innerText = `${translations[interfaceLanguage]["final-score"]} ${score} из ${totalRounds}. ${message}`;
     applyTranslations();
 }
 
@@ -222,6 +254,7 @@ function applyTranslations() {
         if (translations[interfaceLanguage] && translations[interfaceLanguage][key]) {
             el.innerText = translations[interfaceLanguage][key];
         }
+        
     });
 }
 
@@ -373,9 +406,9 @@ function checkTranslation() {
     const correctTranslation = mode === 'to-russian' ? currentWords[currentIndex].translation.toLowerCase() : currentWords[currentIndex].word.toLowerCase();
     if (input === correctTranslation) {
         score++;
-        document.getElementById('result').innerText = 'Правильно!';
+        document.getElementById('result').innerText = translations[interfaceLanguage]["correct"];
     } else {
-        document.getElementById('result').innerText = `Неправильно. Правильный перевод: '${correctTranslation}'.`;
+        document.getElementById('result').innerText = `${translations[interfaceLanguage]["incorrect"]} '${correctTranslation}'.`;
     }
     const imageContainer = document.getElementById('image-container');
     if (currentWords[currentIndex].translationEnglish) {
@@ -384,6 +417,7 @@ function checkTranslation() {
     setTimeout(showNextWord, 2500);
     currentIndex++;
 }
+
 
 function fetchImage(query, imageContainer) {
     const url = `https://api.unsplash.com/search/photos?query=${query}&client_id=sKD_5rdGAuh12DQdGocPvwFP3Kj6GukGsY6xrwyIq88`;
@@ -409,17 +443,19 @@ function fetchImage(query, imageContainer) {
 }
 
 function endGame() {
-    let message = '';
-    if (score === 10) {
-        message = 'Молодец, у тебя отлично получается!';
-    } else if (score >= 5) {
-        message = 'Хороший результат, в следующий раз будет еще лучше!';
-    } else {
-        message = 'Попробуй еще раз!';
-    }
-    document.getElementById('final-score').innerText = `Ваш результат: ${score} из ${totalRounds}. ${message}`;
-    document.querySelector('.game-container').style.display = 'none';
-    document.querySelector('.result-screen').style.display = 'block';
+    
+        let message = '';
+        if (score === 10) {
+            message = translations[interfaceLanguage]["excellent-result"];
+        } else if (score >= 5) {
+            message = translations[interfaceLanguage]["good-result"];
+        } else {
+            message = translations[interfaceLanguage]["try-again"];
+        }
+        document.getElementById('final-score').innerText = `${translations[interfaceLanguage]["final-score"]} ${score} из ${totalRounds}. ${message}`;
+        document.querySelector('.game-container').style.display = 'none';
+        document.querySelector('.result-screen').style.display = 'block';
+
 }
 
 function goToStartScreen() {
