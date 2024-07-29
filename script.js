@@ -5,6 +5,7 @@ let score = 0;
 let totalRounds = 10;
 let mode = "to-russian";
 let interfaceLanguage = "ru";
+let category = "all";
 
 const languageNames = {
     "tajik": "Таджикский",
@@ -408,7 +409,15 @@ function fetchImage(query, imageContainer) {
 }
 
 function endGame() {
-    document.getElementById('final-score').innerText = `Ваш результат: ${score} из ${totalRounds}`;
+    let message = '';
+    if (score === 10) {
+        message = 'Молодец, у тебя отлично получается!';
+    } else if (score >= 5) {
+        message = 'Хороший результат, в следующий раз будет еще лучше!';
+    } else {
+        message = 'Попробуй еще раз!';
+    }
+    document.getElementById('final-score').innerText = `Ваш результат: ${score} из ${totalRounds}. ${message}`;
     document.querySelector('.game-container').style.display = 'none';
     document.querySelector('.result-screen').style.display = 'block';
 }
